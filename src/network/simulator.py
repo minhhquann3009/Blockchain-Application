@@ -12,7 +12,10 @@ import asyncio
 import json
 import random
 import time
+from pathlib import Path
+from typing import Literal
 from dataclasses import dataclass, field
+from ..types.messages import LogMessage, NetworkBody, ConsensusBody
 
 
 @dataclass
@@ -27,10 +30,10 @@ class NetworkConfig:
 
 
 class Network:
-    def __init__(self, config: NetworkConfig, log_path: str = None):
+    def __init__(self, config: NetworkConfig, log_path: str|None = None):
         self.config = config
         self.nodes: dict[str, "NodeInbox"] = {}
-        self.log_path = log_path
+        self.log_path = Path(log_path) if log_path else None
         self._log_buffer = []
         self.rng = random.Random(1337)  # seeded -> reproducible runs (T8)
 
@@ -40,54 +43,104 @@ class Network:
     def register(self, node_id: str, inbox: "NodeInbox"):
         self.nodes[node_id] = inbox
 
-    def _log(self, event_type: str, node_id: str, height: int, extra: dict = None):
-        entry = {
-            "ts": round(time.time(), 6),
-            "node": node_id,
-            "type": event_type,
-            "height": height,
+    def _log(self, direction: Literal['SENT', 'RECV'], message: LogMessage, message_state: dict|None = None):
+        entry_body = {
+            'direction': direction,
+            'from_node': message.log_body.from_node,
+            'to_node': message.log_body.to_node,
         }
-        if extra:
-            entry.update(extra)
+        if message_state is not None:
+            entry_body = entry_body | message_state
+
+        entry = {
+            'height': message.height,
+            'round': message.round,
+            'step': message.step,
+            'type': message.log_type,
+            'body': entry_body,
+        }
+
         self._log_buffer.append(entry)
 
-    def flush_log(self):
-        if not self.log_path:
+    def flush_log(self):        
+        if self.log_path is None:
+            self._log_buffer.clear()
             return
-        with open(self.log_path, "a") as f:
+        self.log_path.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+        with self.log_path.open("w") as f:
             for entry in self._log_buffer:
-                f.write(json.dumps(entry, sort_keys=True) + "\n")
+                f.write(json.dumps(entry, sort_keys=False) + "\n")
         self._log_buffer.clear()
 
-    async def send(self, sender: str, receiver: str, msg_type: str, payload: dict, height: int = -1):
+    async def send(
+            self,
+            height: int, 
+            consensus_round: int, 
+            step: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"],
+            log_type: Literal['NETWORK'],
+            network_body: NetworkBody
+        ):        
+        log_message = LogMessage(
+            height=height,
+            round=consensus_round,
+            step=step,
+            log_type=log_type,
+            log_body=network_body,
+        )
+
+
         cfg = self.config
         if not cfg.stabilized and self.rng.random() < cfg.drop_rate:
-            self._log("drop", sender, height, {"to": receiver, "msg_type": msg_type})
+            self._log(direction='SENT', message=log_message, message_state={'sending': 'DROPPED'})
             return
 
         delay = cfg.bounded_delay if cfg.stabilized else self.rng.uniform(cfg.min_delay, cfg.max_delay)
-        self._log("send", sender, height, {"to": receiver, "msg_type": msg_type, "delay": round(delay, 4)})
+        self._log(direction='SENT', message=log_message, message_state={'sending': 'SUCCEEDED', 'delay': round(delay, 4)})
 
         copies = 1
         if not cfg.stabilized and self.rng.random() < cfg.duplicate_rate:
             copies = 2
-            self._log("duplicate", sender, height, {"to": receiver, "msg_type": msg_type})
+            self._log(direction='SENT', message=log_message, message_state={'sending': 'DUPLICATED'})
 
         for _ in range(copies):
-            asyncio.create_task(self._deliver(sender, receiver, msg_type, payload, height, delay))
+            receiver = network_body.to_node
+            consensus_step = step
+            payload = network_body.payload
+            asyncio.create_task(self._deliver(receiver, delay, consensus_step, payload, log_message))
 
-    async def _deliver(self, sender, receiver, msg_type, payload, height, delay):
+    async def _deliver(
+            self,
+            receiver: str,
+            delay: float,
+            consensus_step: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"],
+            payload: dict, 
+            log_message: LogMessage,
+        ):
         await asyncio.sleep(delay)
+
         inbox = self.nodes.get(receiver)
         if inbox is None:
             return
-        self._log("deliver", receiver, height, {"from": sender, "msg_type": msg_type})
-        await inbox.queue.put((msg_type, payload))
+        
+        self._log(direction='RECV', message=log_message)
+        await inbox.queue.put((consensus_step, payload))
 
-    async def broadcast(self, sender: str, msg_type: str, payload: dict, height: int = -1):
-        for node_id in self.nodes:
-            if node_id != sender:
-                await self.send(sender, node_id, msg_type, payload, height)
+    async def broadcast(
+            self,
+            height: int, 
+            round: int, 
+            step: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"],
+            log_type: Literal['NETWORK'],
+            log_body: NetworkBody
+        ):        
+        sender_id = log_body.from_node
+        for receiver_id in self.nodes:
+            if receiver_id != sender_id:
+                log_body.to_node = receiver_id
+                await self.send(height, round, step, log_type, log_body)
 
 
 class NodeInbox:

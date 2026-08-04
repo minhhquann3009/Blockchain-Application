@@ -16,6 +16,7 @@ import asyncio
 import time
 
 from ..types.messages import Block, BlockHeader, Vote, PREVOTE, PRECOMMIT, NIL
+from ..types.messages import LogMessage, NetworkBody, ConsensusBody
 from ..execution.state import tx_root
 
 
@@ -102,9 +103,20 @@ class ConsensusEngine:
         header.sign(self.signing_key)
         block = Block(header=header, transactions=txs)
         payload = {"header": header.signing_payload() | {"signature": header.signature},
-                   "tx_hashes": [t.tx_hash() for t in txs],
-                   "round": self.cs.round}
-        await self.network.broadcast(self.node_id, "PROPOSAL", payload, self.height)
+                   "tx_hashes": [t.tx_hash() for t in txs],}
+        
+        network_body = NetworkBody(
+            from_node=self.node_id,
+            to_node=None,
+            payload=payload,
+        )
+        await self.network.broadcast(
+            height=self.height,
+            round=self.cs.round,
+            step="PROPOSAL",
+            log_type="NETWORK",
+            log_body=network_body
+        )
         await self._handle_proposal_local(block)
 
     # ---- validation (rule 3) ----------------------------------------
@@ -154,16 +166,34 @@ class ConsensusEngine:
             self.cs.valid_block = block
         await self._send_vote(PREVOTE, vote_hash)
 
-    async def _send_vote(self, phase: str, block_hash: str):
-        bucket = self.cs.vote_bucket(self.cs.round, phase)
+    async def _send_vote(self, step: str, block_hash: str):
+        bucket = self.cs.vote_bucket(self.cs.round, step)
         if self.node_id in bucket:
             return  # rule 1/2: at most one vote per (height, round, phase)
-        vote = Vote(validator=self.node_id, height=self.height, round=self.cs.round,
-                    phase=phase, block_hash=block_hash)
+        
+        vote = Vote(
+            validator=self.node_id,
+            height=self.height,
+            round=self.cs.round,
+            phase=step,
+            block_hash=block_hash
+        )
         vote.sign(self.signing_key)
         bucket[self.node_id] = vote
-        await self.network.broadcast(self.node_id, phase.upper(), vote.signing_payload() | {"signature": vote.signature}, self.height)
-        await self._tally(self.cs.round, phase)
+
+        network_body = NetworkBody(
+            from_node=self.node_id,
+            to_node=None,
+            payload=vote.signing_payload(),
+        )
+        await self.network.broadcast(
+            height=self.height,
+            round=self.cs.round,
+            step=step.upper(),
+            log_type="NETWORK",
+            log_body=network_body
+        )
+        await self._tally(self.cs.round, step)
 
     async def on_vote(self, phase: str, payload: dict):
         vote = Vote(**{k: v for k, v in payload.items() if k != "signature"})

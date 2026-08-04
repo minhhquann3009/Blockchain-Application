@@ -7,6 +7,7 @@ without invalidating the signature.
 """
 from dataclasses import dataclass, field
 from typing import Optional
+from typing import Literal, Optional
 
 from ..crypto.encoding import hash_obj
 from ..crypto.signing import CTX_TX, CTX_HEADER, CTX_VOTE, sign, verify
@@ -101,6 +102,7 @@ class Vote:
             "round": self.round,
             "phase": self.phase,
             "block_hash": self.block_hash,
+            "signature": self.signature,
         }
 
     def sign(self, signing_key):
@@ -110,3 +112,24 @@ class Vote:
         if self.signature is None:
             return False
         return verify(self.validator, CTX_VOTE, self.signing_payload(), self.signature)
+
+
+@dataclass
+class NetworkBody:
+    from_node: str  # Node ID
+    to_node: str|None
+    payload: dict|None
+
+
+@dataclass
+class ConsensusBody:
+    pass
+
+
+@dataclass
+class LogMessage:
+    height: int
+    round: int
+    step: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"]
+    log_type: Literal["NETWORK", "CONSENSUS"]
+    log_body: NetworkBody | ConsensusBody
