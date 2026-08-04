@@ -1,40 +1,92 @@
 import asyncio
 
+from nacl.signing import SigningKey
 from src.crypto.signing import generate_keypair, pubkey_hex
 from src.types.messages import Transaction
 from src.network.simulator import Network, NetworkConfig
 from src.node import Node
 
 
-async def run_t1(num_nodes: int = 8, num_blocks: int = 3):
-    keys = [generate_keypair() for _ in range(num_nodes)]
-    validators = sorted(pubkey_hex(vk) for _, vk in keys)
-    sk_by_pub = {pubkey_hex(vk): sk for sk, vk in keys}
+STATE_FORMAT = "{username}/message"
 
-    net = Network(NetworkConfig(stabilized=True, bounded_delay=0.02), log_path="logs/t1.log")
-    nodes = {pub: Node(pub, sk_by_pub[pub], validators, net) for pub in validators}
 
-    # Alice = validators[0] sets a value; submit to every node's mempool
-    alice = validators[0]
-    tx = Transaction(sender=alice, key=f"{alice}/message", value="hello", nonce=1)
-    tx.sign(sk_by_pub[alice])
-    for node in nodes.values():
+def create_network(log_path: str) -> Network:
+    network_config = NetworkConfig(
+        stabilized=True,
+        bounded_delay=0.02
+    )
+    network = Network(
+        network_config,
+        log_path=log_path,
+    )
+    return network
+
+
+def create_nodes(num_nodes: int, network: Network) -> dict[str, Node]:
+    validators = [generate_keypair() for _ in range(num_nodes)]
+    sorted_node_ids = sorted(pubkey_hex(verify_key) for _, verify_key in validators)
+
+    node_lookup = {}
+    for sign_key, verify_key in validators:
+        node_id = pubkey_hex(verify_key)
+        node_lookup[node_id] = Node(
+            node_id=node_id,
+            signing_key=sign_key,
+            validators=sorted_node_ids,  # Sorted for consistent proposer in consensus round
+            network=network,
+        )
+    return node_lookup
+
+
+def make_transaction(
+        username: str, value: str,
+        sign_key: SigningKey
+    ) -> Transaction:
+    tx = Transaction(
+        sender=username,
+        key=STATE_FORMAT.format(username=username),
+        value=value, 
+        nonce=1,
+    )
+    tx.sign(sign_key)
+    return tx
+
+
+async def run_t1():
+    NUM_NODES = 4
+    NUM_ACCOUNTS = 1
+    LOG_PATH = "logs/t1.jsonl"
+
+    accounts = [generate_keypair() for _ in range(NUM_ACCOUNTS)]
+    network = create_network(LOG_PATH)
+    node_lookup = create_nodes(NUM_NODES, network)
+
+    # Make a tx
+    acc_00 = accounts[0]
+    tx = make_transaction(
+        username="acc_00",
+        value="Hi, I'm Alice!", 
+        sign_key=acc_00[0],
+    )
+    # Broadcast the tx to network
+    for node in node_lookup.values():
         node.submit_tx(tx)
 
-    tasks = [asyncio.create_task(node.run()) for node in nodes.values()]
-
-    # let consensus run long enough to finalize num_blocks blocks
-    await asyncio.sleep(2.0)
-
-    for node in nodes.values():
+    # Start simulation
+    tasks = [asyncio.create_task(node.run()) for node in node_lookup.values()]    
+    # Let consensus run long enough to finalize block
+    await asyncio.sleep(4.0)
+    # End simulation
+    for node in node_lookup.values():
         node.stop()
-    net.flush_log()
 
-    heights = {pub: len(node.ledger) for pub, node in nodes.items()}
-    roots = {pub: (node.ledger[-1].block_hash() if node.ledger else None) for pub, node in nodes.items()}
-    print("Heights per node:", heights)
-    print("Last block hash per node (should all match):", set(roots.values()))
-    assert len(set(roots.values())) == 1, "SAFETY VIOLATION: nodes disagree on finalized chain!"
+    network.flush_log()
+
+    all_node_heights = {node_id: len(node.ledger) for node_id, node in node_lookup.items()}
+    all_node_lasthashs = {node_id: (node.ledger[-1].block_hash() if node.ledger else None) for node_id, node in node_lookup.items()}
+    print("Heights per node:", all_node_heights)
+    print("Last block hash per node (should all match):", set(all_node_lasthashs.values()))
+    assert len(set(all_node_lasthashs.values())) == 1, "SAFETY VIOLATION: nodes disagree on finalized chain!"
     print("T1 PASSED: all nodes converged on the same finalized chain.")
 
 
