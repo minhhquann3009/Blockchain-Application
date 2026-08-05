@@ -34,6 +34,28 @@ def create_nodes(num_nodes: int, network: Network) -> dict[str, Node]:
     return node_lookup
 
 
+def create_tamper_nodes(num_nodes: int, network: Network, num_tamper: int) -> dict[str, Node]:
+    validators = [generate_keypair() for _ in range(num_nodes)]
+    node_ids_01 = list("fff"+pubkey_hex(verify_key)[3:] for _, verify_key in validators[:num_tamper])
+    node_ids_02 = list(pubkey_hex(verify_key) for _, verify_key in validators[num_tamper:])
+    node_ids_01.extend(node_ids_02)
+    sorted_node_ids = sorted(node_ids_01)
+
+    node_lookup = {}
+    for i, (sign_key, verify_key) in enumerate(validators):
+        if i < num_tamper:
+            node_id = "fff"+pubkey_hex(verify_key)[3:]
+        else:
+            node_id = pubkey_hex(verify_key)
+        node_lookup[node_id] = Node(
+            node_id=node_id,
+            signing_key=sign_key,
+            validators=sorted_node_ids,  # Sorted for consistent proposer in consensus round
+            network=network,
+        )
+    return node_lookup
+
+
 def make_transaction(
         username: str, value: str,
         account: tuple[SigningKey, VerifyKey]
@@ -138,6 +160,103 @@ async def run_t2():
     assert len(set(all_node_lasthashs.values())) == 1, "SAFETY VIOLATION: nodes disagree on finalized chain!"
     print("T1 PASSED: all nodes converged on the same finalized chain.")
 
+
+async def run_t3():
+    NUM_NODES = 4
+    NUM_ACCOUNTS = 1
+    NET_CONFIG = NetworkConfig(
+        stabilized=True,
+        bounded_delay=0.02
+    )
+    RANDOM_SEED = 42
+    LOG_PATH = "logs/t3.jsonl"
+
+
+    accounts = [generate_keypair() for _ in range(NUM_ACCOUNTS)]
+    network = create_network(NET_CONFIG, LOG_PATH)
+    node_lookup = create_tamper_nodes(NUM_NODES, network, 1)
+    # Make a tx
+    acc_00 = accounts[0]
+    tx = make_transaction(
+        username="acc_00",
+        value="Hi, I'm Alice!", 
+        account=acc_00,
+    )
+    # Tamper a tx
+    tx.sender = "fff" + tx.sender[3:]
+    # Broadcast the tx to network
+    for node in node_lookup.values():
+        node.submit_tx(tx)
+
+    # Start simulation
+    tasks = [asyncio.create_task(node.run()) for node in node_lookup.values()]    
+    # Let consensus run long enough to finalize block
+    await asyncio.sleep(0.1)
+    # Remove tampered tx and reset memory pool
+    for node in node_lookup.values():
+        node.reset_mempool()
+    await asyncio.sleep(1.9)
+    # End simulation
+    for node in node_lookup.values():
+        node.stop()
+
+    network.flush_log()
+
+    all_node_heights = {node_id: len(node.ledger) for node_id, node in node_lookup.items()}
+    all_node_lasthashs = {node_id: (node.ledger[-1].block_hash() if node.ledger else None) for node_id, node in node_lookup.items()}
+    print("Heights per node:", all_node_heights)
+    print("Last block hash per node (should all match):", set(all_node_lasthashs.values()))
+    assert len(set(all_node_lasthashs.values())) == 1, "SAFETY VIOLATION: nodes disagree on finalized chain!"
+    print("T1 PASSED: all nodes converged on the same finalized chain.")
+
+
+async def run_t5():
+    NUM_NODES = 4
+    NUM_ACCOUNTS = 1
+    NET_CONFIG = NetworkConfig(
+        stabilized=False,
+        bounded_delay=0.02
+    )
+    UNSTABLE_DURATION = 1.0
+    STABLE_DURATION = 3.0
+    LOG_PATH = "logs/t2.jsonl"
+
+
+    accounts = [generate_keypair() for _ in range(NUM_ACCOUNTS)]
+    network = create_network(NET_CONFIG, LOG_PATH)
+    node_lookup = create_nodes(NUM_NODES, network)
+
+    # Make a tx
+    acc_00 = accounts[0]
+    tx = make_transaction(
+        username="acc_00",
+        value="Hi, I'm Alice!", 
+        account=acc_00,
+    )
+    # Broadcast the tx to network
+    for node in node_lookup.values():
+        node.submit_tx(tx)
+
+    # Start simulation
+    tasks = [asyncio.create_task(node.run()) for node in node_lookup.values()]    
+    # Let consensus run long enough to finalize block
+    await asyncio.sleep(UNSTABLE_DURATION)
+    network.config.stabilized = True
+    await asyncio.sleep(STABLE_DURATION)
+    # End simulation
+    for node in node_lookup.values():
+        node.stop()
+
+    network.flush_log()
+
+    all_node_heights = {node_id: len(node.ledger) for node_id, node in node_lookup.items()}
+    all_node_lasthashs = {node_id: (node.ledger[-1].block_hash() if node.ledger else None) for node_id, node in node_lookup.items()}
+    print("Heights per node:", all_node_heights)
+    print("Last block hash per node (should all match):", set(all_node_lasthashs.values()))
+    assert len(set(all_node_lasthashs.values())) == 1, "SAFETY VIOLATION: nodes disagree on finalized chain!"
+    print("T1 PASSED: all nodes converged on the same finalized chain.")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--test", default=1, help="Run test cases (1-8)")
@@ -149,6 +268,8 @@ if __name__ == "__main__":
             asyncio.run(run_t1())
         case '2':
             asyncio.run(run_t2())
+        case '3':
+            asyncio.run(run_t3())
         case _:
             print("Empty test case!")
 

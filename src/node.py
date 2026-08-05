@@ -30,6 +30,10 @@ class Node:
         """Inject a transaction into this node's mempool (simulates client -> node)."""
         self.mempool.append(tx)
 
+    def reset_mempool(self):
+        """Reset memory pool for testing"""
+        self.mempool.clear()
+
     async def run(self):
         self._task = asyncio.create_task(self.engine.start())
         while True:
