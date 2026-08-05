@@ -20,11 +20,22 @@ pip install pynacl
 
 ## Run test cases
 
-Test T1 is available...
-
 ```bash
 python main.py --test TEST  # Run test cases (1-8)
 ```
+
+In test T2
+- Duplicated votes made by the same node (validator) is rejected.
+- Reordered messages are done by time delay, beginning messages arrive later than those sent at the end. This reverse the order of propose to prevote to precommit, taking the consensus more rounds to converge to new height.
+
+In test T3
+- We tamper key pairs of a transaction, and key pairs of some nodes (validators).
+- Tampering transaction result in invalid transaction (logging `VAL06_BLOCK`) when a proposed block is validated.
+- Tampering nodes (validators) result in invalid block header (logging `VAL03_BLOCK`), and invalid vote (`ON_VOTE_PREVOTE`, `ON_VOTE_PRECOMMIT`).
+
+In test T5
+- Drop messages may lead to some nodes failed to move to next step. If correct nodes smaller than quorum, they move to next round and restart proposing and voting. If correct nodes satistfy quorum, all correct nodes will eventually converge to some chain.
+- The test start with unreliable network (drop, delay), then stablize the network until correct nodes converge.
 
 ## Logging
 

@@ -1,0 +1,1096 @@
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0847}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.0332}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.1205}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.1489}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.1377}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.0658}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0587}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.122}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.0932}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.1214}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.1381}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "8cf...c7c", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "45e...d13"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "a2e...bfb", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "3ef...b3a", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.0966}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "0cb...bba", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.1014}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.0989}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "a2e...bfb"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.1383}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.1214}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.1207}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.0878}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.0399}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "a2e...bfb"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.084}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.1131}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.1227}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.112}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.0897}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "3ef...b3a"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "3ef...b3a"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "45e...d13"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.0369}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.1329}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "f6a...fdd"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "f6a...fdd"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0949}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.0702}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.0586}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.1048}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.0368}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "f6a...fdd"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0874}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.128}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.0975}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.1077}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "f6a...fdd"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.0998}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.0865}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.0415}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.0631}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "37c...6ee"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.1168}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.022}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.1278}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.0932}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.0806}}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "37c...6ee"}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "f6a...fdd"}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "45e...d13"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "45e...d13", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0259}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "45e...d13", "to": "3ef...b3a", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "45e...d13", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.0397}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "45e...d13", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.0912}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "45e...d13", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.143}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "45e...d13", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.1002}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "45e...d13", "to": "a2e...bfb"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "45e...d13", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "0cb...bba"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "0cb...bba", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0122}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "0cb...bba", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.1381}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "0cb...bba", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.1403}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "0cb...bba", "to": "37c...6ee", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "0cb...bba", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.0327}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "0cb...bba", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.1095}}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "8cf...c7c"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.1227}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.0135}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.0243}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.1371}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.032}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "DROPPED"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "8cf...c7c"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "0cb...bba", "to": "a2e...bfb"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 0, "event": "PREVOTE_QUORUM", "msg": "Vote PRECOMMIT for block 29f...365!", "node": "45e...d13"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "0cb...bba", "to": "f6a...fdd"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "45e...d13", "to": "0cb...bba"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "45e...d13", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "event": "PRECOMMIT_QUORUM", "msg": "Decide and apply block 29f...365!", "node": "0cb...bba"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "45e...d13", "to": "f6a...fdd"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "0cb...bba", "to": "8cf...c7c"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "0cb...bba", "to": "45e...d13"}}
+{"h": 0, "r": 0, "event": "PRECOMMIT_QUORUM", "msg": "Decide and apply block 29f...365!", "node": "45e...d13"}
+{"h": 0, "r": 0, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "0cb...bba", "to": "3ef...b3a"}}
+{"h": 0, "r": 0, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "a2e...bfb"}
+{"h": 0, "r": 0, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "3ef...b3a"}
+{"h": 0, "r": 0, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "37c...6ee"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.1377}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.0182}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.056}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.0372}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.1026}}
+{"h": 0, "r": 1, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "37c...6ee"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0139}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.1433}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.0261}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.049}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.011}}
+{"h": 0, "r": 0, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "f6a...fdd"}
+{"h": 0, "r": 0, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "8cf...c7c"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 1, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "3ef...b3a"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.1174}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.0179}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.1221}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.0343}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 1, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "f6a...fdd"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0357}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.0996}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.0213}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 1, "r": 0, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 1, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "8cf...c7c"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.0832}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.055}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.0787}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 1, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "a2e...bfb"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.1188}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.1078}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.1076}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.0658}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.1472}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.0708}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 1, "r": 0, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 1, "r": 0, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 1, "r": 0, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 1, "r": 0, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0936}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.1439}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.1043}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.0145}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.0329}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.0641}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.0402}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.0476}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "DROPPED"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.0778}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "DROPPED"}}
+{"h": 1, "r": 0, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 1, "r": 0, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "0cb...bba"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 1, "r": 0, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 1, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 1, "r": 0, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 0, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "45e...d13"}
+{"h": 0, "r": 1, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "a2e...bfb"}
+{"h": 0, "r": 1, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "3ef...b3a"}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 1, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "37c...6ee"}
+{"h": 0, "r": 1, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "f6a...fdd"}
+{"h": 0, "r": 1, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "8cf...c7c"}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 1, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 1, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "0cb...bba"}
+{"h": 1, "r": 1, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "45e...d13"}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "45e...d13", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "45e...d13", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "45e...d13", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "45e...d13", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "45e...d13", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "45e...d13", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "45e...d13", "to": "a2e...bfb"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "45e...d13", "to": "3ef...b3a"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "45e...d13", "to": "37c...6ee"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "45e...d13", "to": "0cb...bba"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "45e...d13", "to": "f6a...fdd"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "45e...d13", "to": "8cf...c7c"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "a2e...bfb"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "3ef...b3a"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "37c...6ee"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "0cb...bba"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "f6a...fdd"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "8cf...c7c"}}
+{"h": 0, "r": 2, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "a2e...bfb"}
+{"h": 0, "r": 2, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "3ef...b3a"}
+{"h": 0, "r": 2, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "37c...6ee"}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 2, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "f6a...fdd"}
+{"h": 0, "r": 2, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "8cf...c7c"}
+{"h": 0, "r": 2, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "a2e...bfb"}
+{"h": 0, "r": 2, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "3ef...b3a"}
+{"h": 0, "r": 2, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "37c...6ee"}
+{"h": 0, "r": 2, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "f6a...fdd"}
+{"h": 0, "r": 2, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "8cf...c7c"}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "a2e...bfb"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "45e...d13"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "3ef...b3a"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "37c...6ee"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "f6a...fdd"}}
+{"h": 1, "r": 2, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "8cf...c7c"}}
+{"h": 0, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "a2e...bfb"}
+{"h": 0, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "3ef...b3a"}
+{"h": 0, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "37c...6ee"}
+{"h": 0, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "f6a...fdd"}
+{"h": 0, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "8cf...c7c"}
+{"h": 1, "r": 2, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "0cb...bba"}
+{"h": 1, "r": 2, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "45e...d13"}
+{"h": 0, "r": 3, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "a2e...bfb"}
+{"h": 0, "r": 3, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "3ef...b3a"}
+{"h": 0, "r": 3, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "37c...6ee"}
+{"h": 0, "r": 3, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "f6a...fdd"}
+{"h": 0, "r": 3, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "8cf...c7c"}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "8cf...c7c"}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "a2e...bfb"}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 4, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "3ef...b3a"}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "37c...6ee"}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 4, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "f6a...fdd"}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 4, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 5, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "0cb...bba"}
+{"h": 1, "r": 3, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "45e...d13"}
+{"h": 0, "r": 5, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "a2e...bfb"}
+{"h": 0, "r": 5, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "37c...6ee"}
+{"h": 0, "r": 5, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "f6a...fdd"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "f6a...fdd"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 5, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "8cf...c7c"}
+{"h": 0, "r": 5, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "3ef...b3a"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 6, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "a2e...bfb"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 6, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "3ef...b3a"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "37c...6ee"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 6, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "8cf...c7c"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 4, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "0cb...bba"}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 6, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 1, "r": 4, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 4, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 5, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 5, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 5, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 5, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 5, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 4, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "45e...d13"}
+{"h": 1, "r": 5, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "0cb...bba"}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "0cb...bba", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "0cb...bba", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 7, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "a2e...bfb"}
+{"h": 0, "r": 7, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "37c...6ee"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "37c...6ee"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 7, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "f6a...fdd"}
+{"h": 0, "r": 7, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "8cf...c7c"}
+{"h": 0, "r": 7, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "3ef...b3a"}
+{"h": 1, "r": 5, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "45e...d13"}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "a2e...bfb"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "45e...d13"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "3ef...b3a"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "37c...6ee"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "f6a...fdd"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "0cb...bba", "to": "8cf...c7c"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "a2e...bfb"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "45e...d13"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "3ef...b3a"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "37c...6ee"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "f6a...fdd"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "0cb...bba", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "a2e...bfb"}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "45e...d13", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "3ef...b3a"}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "37c...6ee"}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "f6a...fdd"}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 0cb...bba, or vote height 1 differs from current height 0!", "node": "8cf...c7c"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "a2e...bfb"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "3ef...b3a"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "37c...6ee"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "0cb...bba"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "f6a...fdd"}}
+{"h": 1, "r": 6, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "45e...d13", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "a2e...bfb"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "a2e...bfb"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 8, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "3ef...b3a"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "3ef...b3a"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 8, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "f6a...fdd"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "f6a...fdd"}
+{"h": 0, "r": 8, "event": "VAL02_BLOCK", "msg": "Invalid block 29f...365", "node": "8cf...c7c"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "8cf...c7c"}
+{"h": 0, "r": 8, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 45e...d13, or vote height 1 differs from current height 0!", "node": "37c...6ee"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 8, "type": "NETWORK", "body": {"msg": "PRECOMMIT", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "3ef...b3a", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PRECOMMIT", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PROPOSAL", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "a2e...bfb"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "45e...d13"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "37c...6ee"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "0cb...bba"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "f6a...fdd"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "3ef...b3a", "to": "8cf...c7c"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "a2e...bfb", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "37c...6ee", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 3ef...b3a, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "f6a...fdd", "to": "8cf...c7c", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "a2e...bfb", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "45e...d13", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "3ef...b3a", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "37c...6ee", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "0cb...bba", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "SENT", "from": "8cf...c7c", "to": "f6a...fdd", "sending": "SUCCEEDED", "delay": 0.05}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "45e...d13"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "3ef...b3a"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "37c...6ee"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "0cb...bba"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "f6a...fdd"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "a2e...bfb", "to": "8cf...c7c"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "a2e...bfb"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "45e...d13"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "3ef...b3a"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "0cb...bba"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "f6a...fdd"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "37c...6ee", "to": "8cf...c7c"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "a2e...bfb"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "45e...d13"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "3ef...b3a"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "37c...6ee"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "0cb...bba"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "f6a...fdd", "to": "8cf...c7c"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "a2e...bfb"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "45e...d13"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "3ef...b3a"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "37c...6ee"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "0cb...bba"}}
+{"h": 0, "r": 9, "type": "NETWORK", "body": {"msg": "PREVOTE", "direct": "RECV", "from": "8cf...c7c", "to": "f6a...fdd"}}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "45e...d13"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator a2e...bfb, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 37c...6ee, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator f6a...fdd, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ON_VOTE_PREVOTE", "msg": "Rejected validator 8cf...c7c, or vote height 0 differs from current height 1!", "node": "0cb...bba"}
+{"h": 1, "r": 6, "event": "ROUND_TIMEOUT", "msg": "Round timeout", "node": "0cb...bba"}
