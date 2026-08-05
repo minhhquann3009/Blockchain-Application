@@ -26,9 +26,19 @@ python main.py --test TEST  # Run test cases (1-8)
 
 ## Logging
 
-Logging for `NETWORK`
+Log network interaction between nodes with:
+- Three types of messages (`PROPOSAL`, `PREVOTE`, `PRECOMMIT`) and two directions (`SENT`, `RECV`).
+- Sending messages (`SENT`) in an unreliable network (configured `stabilized=False`) can result in being delayed (`SUCCEEDED` with delay time), duplicated (`DUPLICATED`), dropped (`DROPPED`), or reordered (not yet implemented).
 
-Logging for `CONSENSUS`
+Log events of consensus algorithms:
+
+|Event|Description|Source|
+|-|-|-|
+|`ROUND_TIMEOUT`|After round timeout|`def _round_timeout()`|
+|`VAL<index>_BLOCK`|While valiadating a block|`def validate_block()`|
+|`ON_VOTE_<vote_step>`|After receiving a vote|`def on_vote()`|
+|`PREVOTE_QUORUM`|Before sending precommit vote|`def _on_prevote_quorum()`|
+|`PRECOMMIT_QUORUM`|Before deciding and applying a block's transactions|`def _on_precommit_quorum()`|
 
 ## Chạy unit test
 
