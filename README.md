@@ -1,18 +1,34 @@
-# Lab 01 — Minimal BFT Blockchain (Python skeleton)
+# Design and implement Layer 1 of Blockchain.
 
-## Cài đặt
+Layer 1 represents the core blockchain networks, such as Bitcoin and Ethereum. It ensures security and decentralization through consensus mechanisms like Proof-of-Work (PoW) and Proof-of-Stake (PoS).
+- Transaction Processing: Records and verifies transactions.
+- Consensus Mechanism: Maintains decentralized agreement on blockchain state.
+
+## Setting Up
+
+Create a virtual environment.
 
 ```bash
-pip install pynacl --break-system-packages   # hoặc trong venv thì bỏ flag này
+pip install pynacl
 ```
 
-## Chạy scenario T1 (chạy bình thường, 8 node, kiểm tra finality)
+## System Design
+
+- State: A key-value table (e.g. `alice: "Hi"`)
+- Transaction: An account (key) overwrite with a new message (value).
+- Consensus: minimal [Tendermint](https://arxiv.org/abs/1807.04938) style.
+
+## Run test cases
 
 ```bash
-python3 main.py
+python main.py --test TEST  # Run test cases (1-8)
 ```
 
-Kỳ vọng: tất cả 8 node in ra cùng 1 block hash cuối cùng → in "T1 PASSED".
+## Logging
+
+Logging for `NETWORK`
+
+Logging for `CONSENSUS`
 
 ## Chạy unit test
 

@@ -1,5 +1,5 @@
 import asyncio
-
+import argparse
 from nacl.signing import VerifyKey, SigningKey
 from src.crypto.signing import generate_keypair, pubkey_hex
 from src.types.messages import Transaction
@@ -91,6 +91,14 @@ async def run_t1():
 
 
 if __name__ == "__main__":
-    import os
-    os.makedirs("logs", exist_ok=True)
-    asyncio.run(run_t1())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--test", default=1, help="Run test cases (1-8)")
+    args = parser.parse_args()
+
+    test_id = args.test
+    match test_id:
+        case 1:
+            asyncio.run(run_t1())
+        case _:
+            print("Empty test case!")
+

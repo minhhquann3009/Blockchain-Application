@@ -11,12 +11,12 @@ network" in the spec and keeps the lab focused on consensus, not I/O.
 import asyncio
 import json
 import random
+import copy
 import time
 from pathlib import Path
 from typing import Literal
 from dataclasses import dataclass, field
-from ..types.messages import LogMessage, NetworkBody, ConsensusBody
-
+from ..types.messages import LogMessage, NetworkBody, short_addr
 
 @dataclass
 class NetworkConfig:
@@ -45,9 +45,10 @@ class Network:
 
     def _log(self, direction: Literal['SENT', 'RECV'], message: LogMessage, message_state: dict|None = None):
         entry_body = {
+            'msg_type': message.log_body.msg_type,
             'direction': direction,
-            'from_node': message.log_body.from_node,
-            'to_node': message.log_body.to_node,
+            'from_node': short_addr(message.log_body.from_node),
+            'to_node': short_addr(message.log_body.to_node),
         }
         if message_state is not None:
             entry_body = entry_body | message_state
@@ -55,7 +56,6 @@ class Network:
         entry = {
             'height': message.height,
             'round': message.round,
-            'step': message.step,
             'type': message.log_type,
             'body': entry_body,
         }
@@ -79,14 +79,12 @@ class Network:
             self,
             height: int, 
             consensus_round: int, 
-            step: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"],
             log_type: Literal['NETWORK'],
             network_body: NetworkBody
         ):        
         log_message = LogMessage(
             height=height,
             round=consensus_round,
-            step=step,
             log_type=log_type,
             log_body=network_body,
         )
@@ -106,8 +104,8 @@ class Network:
             self._log(direction='SENT', message=log_message, message_state={'sending': 'DUPLICATED'})
 
         for _ in range(copies):
-            receiver = network_body.to_node
-            consensus_step = step
+            receiver = log_message.log_body.to_node
+            consensus_step = network_body.msg_type
             payload = network_body.payload
             asyncio.create_task(self._deliver(receiver, delay, consensus_step, payload, log_message))
 
@@ -124,7 +122,6 @@ class Network:
         inbox = self.nodes.get(receiver)
         if inbox is None:
             return
-        
         self._log(direction='RECV', message=log_message)
         await inbox.queue.put((consensus_step, payload))
 
@@ -132,7 +129,6 @@ class Network:
             self,
             height: int, 
             round: int, 
-            step: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"],
             log_type: Literal['NETWORK'],
             log_body: NetworkBody
         ):        
@@ -140,7 +136,7 @@ class Network:
         for receiver_id in self.nodes:
             if receiver_id != sender_id:
                 log_body.to_node = receiver_id
-                await self.send(height, round, step, log_type, log_body)
+                await self.send(height, round, log_type, copy.copy(log_body))
 
 
 class NodeInbox:

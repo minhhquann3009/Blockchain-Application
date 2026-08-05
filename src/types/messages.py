@@ -102,7 +102,6 @@ class Vote:
             "round": self.round,
             "phase": self.phase,
             "block_hash": self.block_hash,
-            "signature": self.signature,
         }
 
     def sign(self, signing_key):
@@ -116,20 +115,29 @@ class Vote:
 
 @dataclass
 class NetworkBody:
+    msg_type: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"]
     from_node: str  # Node ID
     to_node: str|None
     payload: dict|None
 
 
 @dataclass
-class ConsensusBody:
-    pass
+class LogConsensus:
+    height: int
+    round: int
+    event: str
+    message: str
+    node_id: str
 
 
 @dataclass
 class LogMessage:
     height: int
     round: int
-    step: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"]
-    log_type: Literal["NETWORK", "CONSENSUS"]
-    log_body: NetworkBody | ConsensusBody
+    log_type: Literal["NETWORK"]
+    log_body: NetworkBody
+
+
+def short_addr(addr: str, prefix: int = 3, suffix: int = 3) -> str:
+    """Shorten a hexadecimal address for logging."""
+    return f"{addr[:prefix]}...{addr[-suffix:]}"

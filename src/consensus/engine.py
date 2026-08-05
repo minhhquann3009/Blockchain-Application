@@ -16,8 +16,9 @@ import asyncio
 import time
 
 from ..types.messages import Block, BlockHeader, Vote, PREVOTE, PRECOMMIT, NIL
-from ..types.messages import LogMessage, NetworkBody, ConsensusBody
+from ..types.messages import LogMessage, NetworkBody, LogConsensus, short_addr
 from ..execution.state import tx_root
+from ..network.simulator import Network
 
 
 class ConsensusState:
@@ -37,7 +38,7 @@ class ConsensusState:
 
 class ConsensusEngine:
     def __init__(self, node_id: str, signing_key, validators: list[str],
-                 network, mempool, state_store, ledger, round_timeout: float = 0.5):
+                 network: Network, mempool, state_store, ledger, round_timeout: float = 0.5):
         self.node_id = node_id                # our own pubkey hex
         self.signing_key = signing_key
         self.validators = validators           # sorted list of pubkey hex, fixed set
@@ -53,6 +54,18 @@ class ConsensusEngine:
         self.height = len(ledger)
         self.cs = ConsensusState()
         self._timeout_task: asyncio.Task | None = None
+
+    # ---- logging -------------------------------------------------
+
+    def _log(self, log_message: LogConsensus):
+        entry = {
+            'height': log_message.height,
+            'round': log_message.round,
+            'event': log_message.event,
+            'message': log_message.message,
+            'node_id': short_addr(log_message.node_id),
+        }
+        self.network._log_buffer.append(entry)
 
     # ---- helpers -------------------------------------------------
 
@@ -72,6 +85,8 @@ class ConsensusEngine:
 
     async def _round_timeout(self):
         await asyncio.sleep(self.round_timeout)
+        log_msg = LogConsensus(self.height, self.cs.round, 'ROUND_TIMEOUT', "Round timeout", self.node_id)
+        self._log(log_message=log_msg)
         # Rule: proposer silent/crashed -> timeout triggers, move to next round (T6)
         await self._enter_round(self.cs.round + 1)
 
@@ -106,6 +121,7 @@ class ConsensusEngine:
                    "tx_hashes": [t.tx_hash() for t in txs],}
         
         network_body = NetworkBody(
+            msg_type="PROPOSAL",
             from_node=self.node_id,
             to_node=None,
             payload=payload,
@@ -113,7 +129,6 @@ class ConsensusEngine:
         await self.network.broadcast(
             height=self.height,
             round=self.cs.round,
-            step="PROPOSAL",
             log_type="NETWORK",
             log_body=network_body
         )
@@ -124,20 +139,27 @@ class ConsensusEngine:
     def validate_block(self, block: Block) -> bool:
         h = block.header
         if h.height != self.height:
+            self._log(LogConsensus(self.height, self.cs.round, f'VAL00_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
             return False
         if h.parent_hash != self.parent_hash():
+            self._log(LogConsensus(self.height, self.cs.round, f'VAL01_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
             return False
         if h.proposer != self.proposer_for(self.height, self.cs.round):
+            self._log(LogConsensus(self.height, self.cs.round, f'VAL02_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
             return False
         if not h.verify():
+            self._log(LogConsensus(self.height, self.cs.round, f'VAL03_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
             return False
         expected_state = self.state_store.apply_all(block.transactions)
         if h.state_root != expected_state.state_root():
+            self._log(LogConsensus(self.height, self.cs.round, f'VAL04_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
             return False
         if h.tx_root != tx_root(block.transactions):
+            self._log(LogConsensus(self.height, self.cs.round, f'VAL05_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
             return False
         for tx in block.transactions:
             if not tx.verify():
+                self._log(LogConsensus(self.height, self.cs.round, f'VAL06_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
                 return False
         return True
 
@@ -182,14 +204,14 @@ class ConsensusEngine:
         bucket[self.node_id] = vote
 
         network_body = NetworkBody(
+            msg_type=step.upper(),
             from_node=self.node_id,
             to_node=None,
-            payload=vote.signing_payload(),
+            payload=vote.signing_payload() | {"signature": vote.signature},
         )
         await self.network.broadcast(
             height=self.height,
             round=self.cs.round,
-            step=step.upper(),
             log_type="NETWORK",
             log_body=network_body
         )
@@ -201,12 +223,18 @@ class ConsensusEngine:
 
         # rule 6: reject vote outside current chain/height/domain
         if vote.validator not in self.validators or vote.height != self.height:
+            log_msg = f"Rejected validator {short_addr(vote.validator)}, or vote height {vote.height} differs from current height {self.height}!"
+            self._log(LogConsensus(self.height, self.cs.round, f'ON_VOTE_{phase.upper()}', log_msg, self.node_id))
             return
         if not vote.verify():
+            log_msg = "Invalid vote signature!"
+            self._log(LogConsensus(self.height, self.cs.round, f'ON_VOTE_{phase.upper()}', log_msg, self.node_id))
             return
 
         bucket = self.cs.vote_bucket(vote.round, phase)
         if vote.validator in bucket:
+            log_msg = "Rejected duplicated vote!"
+            self._log(LogConsensus(self.height, self.cs.round, f'ON_VOTE_{phase.upper()}', log_msg, self.node_id))
             return  # rule 7: ignore duplicate / already-counted vote
         bucket[vote.validator] = vote
         await self._tally(vote.round, phase)
@@ -231,6 +259,8 @@ class ConsensusEngine:
                 await self._on_precommit_quorum(round_, block_hash)
 
     async def _on_prevote_quorum(self, round_: int, block_hash: str):
+        self._log(LogConsensus(self.height, self.cs.round, f'PREVOTE_QUORUM', f"Vote PRECOMMIT for block {short_addr(block_hash)}!", self.node_id))
+
         # rule 4: lock on quorum prevote for a non-NIL block
         block = self.cs.valid_block
         if block and block.block_hash() == block_hash:
@@ -245,6 +275,9 @@ class ConsensusEngine:
         block = self.cs.locked_block
         if not block or block.block_hash() != block_hash:
             return
+        
+        self._log(LogConsensus(self.height, self.cs.round, f'PRECOMMIT_QUORUM', f"Decide and apply block {short_addr(block_hash)}!", self.node_id))
+
         self.cs.decided = True
         if self._timeout_task:
             self._timeout_task.cancel()
