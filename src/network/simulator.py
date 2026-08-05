@@ -45,17 +45,17 @@ class Network:
 
     def _log(self, direction: Literal['SENT', 'RECV'], message: LogMessage, message_state: dict|None = None):
         entry_body = {
-            'msg_type': message.log_body.msg_type,
-            'direction': direction,
-            'from_node': short_addr(message.log_body.from_node),
-            'to_node': short_addr(message.log_body.to_node),
+            'msg': message.log_body.msg_type,
+            'direct': direction,
+            'from': short_addr(message.log_body.from_node),
+            'to': short_addr(message.log_body.to_node),
         }
         if message_state is not None:
             entry_body = entry_body | message_state
 
         entry = {
-            'height': message.height,
-            'round': message.round,
+            'h': message.height,
+            'r': message.round,
             'type': message.log_type,
             'body': entry_body,
         }

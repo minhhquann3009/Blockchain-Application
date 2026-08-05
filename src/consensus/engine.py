@@ -14,6 +14,8 @@ n = 3f + 1 validators. Quorum = 2f + 1 (i.e. > 2n/3).
 """
 import asyncio
 import time
+from enum import Enum
+from typing import Literal
 
 from ..types.messages import Block, BlockHeader, Vote, PREVOTE, PRECOMMIT, NIL
 from ..types.messages import LogMessage, NetworkBody, LogConsensus, short_addr
@@ -21,15 +23,42 @@ from ..execution.state import tx_root
 from ..network.simulator import Network
 
 
+class Step(str, Enum):
+    PROPOSE = "PROPOSE"
+    PREVOTE = "PREVOTE"
+    PRECOMMIT = "PRECOMMIT"
+    COMMIT = "COMMIT"
+
+
+def _header_payload(header: BlockHeader) -> dict:
+    return header.signing_payload() | {"signature": header.signature}
+
+
+def _vote_payload(vote: Vote) -> dict:
+    return vote.signing_payload() | {"signature": vote.signature}
+
+
 class ConsensusState:
     """Per-node, per-height mutable consensus state."""
     def __init__(self):
         self.round = 0
+        self.step = Step.PROPOSE
+
         self.locked_block: Block | None = None
         self.locked_round: int = -1
         self.valid_block: Block | None = None
+        self.valid_round: int = -1
+
+        # proposals[round] -> Block. Kept PER ROUND -- never overwritten by a
+        # later round's proposal. This is what _on_prevote_quorum /
+        # _on_precommit_quorum look up, so a quorum for round r is always
+        # resolved against round r's actual block, regardless of what round
+        # we've personally moved on to.
+        self.proposals: dict[int, Block] = {}
+
         # votes[round][phase] -> {validator: Vote}
         self.votes: dict[int, dict[str, dict[str, Vote]]] = {}
+
         self.decided = False
 
     def vote_bucket(self, round_: int, phase: str) -> dict:
@@ -59,11 +88,11 @@ class ConsensusEngine:
 
     def _log(self, log_message: LogConsensus):
         entry = {
-            'height': log_message.height,
-            'round': log_message.round,
+            'h': log_message.height,
+            'r': log_message.round,
             'event': log_message.event,
-            'message': log_message.message,
-            'node_id': short_addr(log_message.node_id),
+            'msg': log_message.message,
+            'node': short_addr(log_message.node_id),
         }
         self.network._log_buffer.append(entry)
 
@@ -93,7 +122,10 @@ class ConsensusEngine:
     async def _enter_round(self, round_: int):
         if self.cs.decided:
             return
+        
         self.cs.round = round_
+        self.cs.step = Step.PROPOSE
+
         self._reset_round_timeout()
         if self.is_proposer():
             await self._propose()
@@ -105,20 +137,35 @@ class ConsensusEngine:
     # ---- proposing --------------------------------------------------
 
     async def _propose(self):
-        txs = list(self.mempool)
-        new_state = self.state_store.apply_all(txs)
-        header = BlockHeader(
-            height=self.height,
-            parent_hash=self.parent_hash(),
-            proposer=self.node_id,
-            state_root=new_state.state_root(),
-            tx_root=tx_root(txs),
-            timestamp=time.time(),
-        )
-        header.sign(self.signing_key)
-        block = Block(header=header, transactions=txs)
-        payload = {"header": header.signing_payload() | {"signature": header.signature},
-                   "tx_hashes": [t.tx_hash() for t in txs],}
+        round_ = self.cs.round
+
+        if self.cs.valid_block is not None:
+            # Proof-of-Lock rule: if an earlier round's prevote quorum gave
+            # us a valid_block, we MUST re-propose that exact value instead
+            # of a fresh one. Skipping this is a liveness bug -- without it,
+            # rotating proposers can keep proposing different fresh blocks
+            # forever and the network never converges.
+            block = self.cs.valid_block
+        else:
+            txs = list(self.mempool)
+            new_state = self.state_store.apply_all(txs)
+            header = BlockHeader(
+                height=self.height,
+                parent_hash=self.parent_hash(),
+                proposer=self.node_id,
+                state_root=new_state.state_root(),
+                tx_root=tx_root(txs),
+                timestamp=time.time(),
+            )
+            header.sign(self.signing_key)
+            block = Block(header=header, transactions=txs)
+
+        self.cs.proposals[round_] = block
+        payload = {
+            "header": _header_payload(block.header),
+            "tx_hashes": [t.tx_hash() for t in block.transactions],
+            "round": round_,
+        }
         
         network_body = NetworkBody(
             msg_type="PROPOSAL",
@@ -132,66 +179,93 @@ class ConsensusEngine:
             log_type="NETWORK",
             log_body=network_body
         )
-        await self._handle_proposal_local(block)
+        await self._handle_proposal_local(block, round_)
 
     # ---- validation (rule 3) ----------------------------------------
 
-    def validate_block(self, block: Block) -> bool:
+    def validate_block(self, block: Block, round_: int) -> bool:
+        def _log_invalid_block(event_index: int):
+            self._log(LogConsensus(self.height, self.cs.round, f'VAL0{event_index}_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
+
         h = block.header
         if h.height != self.height:
-            self._log(LogConsensus(self.height, self.cs.round, f'VAL00_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
+            _log_invalid_block(0)
             return False
         if h.parent_hash != self.parent_hash():
-            self._log(LogConsensus(self.height, self.cs.round, f'VAL01_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
+            _log_invalid_block(1)
             return False
-        if h.proposer != self.proposer_for(self.height, self.cs.round):
-            self._log(LogConsensus(self.height, self.cs.round, f'VAL02_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
+        if h.proposer != self.proposer_for(self.height, round_):
+            _log_invalid_block(2)
             return False
         if not h.verify():
-            self._log(LogConsensus(self.height, self.cs.round, f'VAL03_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
+            _log_invalid_block(3)
             return False
         expected_state = self.state_store.apply_all(block.transactions)
         if h.state_root != expected_state.state_root():
-            self._log(LogConsensus(self.height, self.cs.round, f'VAL04_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
+            _log_invalid_block(4)
             return False
         if h.tx_root != tx_root(block.transactions):
-            self._log(LogConsensus(self.height, self.cs.round, f'VAL05_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
+            _log_invalid_block(5)
             return False
         for tx in block.transactions:
             if not tx.verify():
-                self._log(LogConsensus(self.height, self.cs.round, f'VAL06_BLOCK', f"Invalid block {short_addr(block.block_hash())}", self.node_id))
+                _log_invalid_block(6)
                 return False
+
         return True
 
     # ---- message handlers --------------------------------------------
 
     async def on_proposal(self, payload: dict):
-        # NOTE: in a full implementation, tx bodies are fetched via the
-        # mempool/body-after-header rule; here we assume mempool already
-        # holds the referenced tx (simulator delivers bodies immediately).
-        header = BlockHeader(**{k: v for k, v in payload["header"].items() if k != "signature"})
-        header.signature = payload["header"]["signature"]
-        txs = [tx for tx in self.mempool if tx.tx_hash() in payload["tx_hashes"]]
-        block = Block(header=header, transactions=txs)
-        await self._handle_proposal_local(block)
+        round_ = payload["round"]
 
-    async def _handle_proposal_local(self, block: Block):
+        header_fields = {k: v for k, v in payload["header"].items() if k != "signature"}
+        header = BlockHeader(**header_fields)
+        header.signature = payload["header"]["signature"]
+
+        # Preserve the PROPOSER's tx order (tx_root is order-sensitive) --
+        # do not just filter the local mempool, which may be ordered
+        # differently.
+        tx_by_hash = {t.tx_hash(): t for t in self.mempool}
+        if any(h not in tx_by_hash for h in payload["tx_hashes"]):
+            # Body not (yet) available locally (Section 6: header is
+            # broadcast before body). A full implementation would request
+            # the missing tx bodies here and retry once they arrive.
+            return
+        txs = [tx_by_hash[h] for h in payload["tx_hashes"]]
+        block = Block(header=header, transactions=txs)
+        await self._handle_proposal_local(block, round_)
+
+    async def _handle_proposal_local(self, block: Block, round_: int):
+        # Keep the block for this round even if we're not ready to act on
+        # it yet (e.g. it's for a future round) -- a precommit quorum may
+        # reference it later regardless of what round we're personally in.
+        self.cs.proposals.setdefault(round_, block)
+
+        # Rule 3 gate: only react (prevote) for the round we're currently
+        # in, and only while still waiting for a proposal.
+        if round_ != self.cs.round or self.cs.step != Step.PROPOSE:
+            return
+
+        structurally_ok = self.validate_block(block, round_)
+
         if self.cs.locked_block is not None:
-            # rule 5: locked -> only accept a *different* block via a later
-            # quorum prevote, not directly from a proposal
-            valid = self.validate_block(block) and block.block_hash() == self.cs.locked_block.block_hash()
+            # Rule 5: locked on B -> may only prevote a *different* block
+            # after observing a later-round quorum prevote for it (handled
+            # in _on_prevote_quorum), never directly off a proposal.
+            valid = structurally_ok and block.block_hash() == self.cs.locked_block.block_hash()
         else:
-            valid = self.validate_block(block)
+            valid = structurally_ok
 
         vote_hash = block.block_hash() if valid else NIL
-        if valid:
-            self.cs.valid_block = block
         await self._send_vote(PREVOTE, vote_hash)
 
     async def _send_vote(self, step: str, block_hash: str):
         bucket = self.cs.vote_bucket(self.cs.round, step)
         if self.node_id in bucket:
             return  # rule 1/2: at most one vote per (height, round, phase)
+
+        self.cs.step = Step.PREVOTE if step == PREVOTE else Step.PRECOMMIT
         
         vote = Vote(
             validator=self.node_id,
@@ -204,7 +278,7 @@ class ConsensusEngine:
         bucket[self.node_id] = vote
 
         network_body = NetworkBody(
-            msg_type=step.upper(),
+            msg_type=self.cs.step,
             from_node=self.node_id,
             to_node=None,
             payload=vote.signing_payload() | {"signature": vote.signature},
@@ -253,21 +327,43 @@ class ConsensusEngine:
         for block_hash, count in counts.items():
             if count < self.quorum:
                 continue
-            if phase == PREVOTE and block_hash != NIL:
-                await self._on_prevote_quorum(round_, block_hash)
-            elif phase == PRECOMMIT and block_hash != NIL:
-                await self._on_precommit_quorum(round_, block_hash)
+            if phase == PREVOTE:
+                if block_hash == NIL:
+                    await self._on_prevote_nil_quorum(round_)
+                else:
+                    await self._on_prevote_quorum(round_, block_hash)
+            else:
+                if block_hash == NIL:
+                    await self._on_precommit_nil_quorum(round_)
+                else:
+                    await self._on_precommit_quorum(round_, block_hash)
 
     async def _on_prevote_quorum(self, round_: int, block_hash: str):
+        block = self.cs.proposals.get(round_)
+        if block is None or block.block_hash() != block_hash:
+            return  # haven't seen the matching proposal body for this round yet
+
         self._log(LogConsensus(self.height, self.cs.round, f'PREVOTE_QUORUM', f"Vote PRECOMMIT for block {short_addr(block_hash)}!", self.node_id))
 
-        # rule 4: lock on quorum prevote for a non-NIL block
-        block = self.cs.valid_block
-        if block and block.block_hash() == block_hash:
+        # Rule 4: lock on quorum prevote for a non-NIL block. Guard against a
+        # stale, out-of-order quorum from an OLDER round overriding a lock
+        # we've already moved past -- locking must only ever move forward.
+        if round_ >= self.cs.locked_round:
             self.cs.locked_block = block
             self.cs.locked_round = round_
-        if round_ == self.cs.round:
+        # valid_block/valid_round track the latest Proof-of-Lock independent
+        # of our own lock; _propose() reuses this when we become proposer.
+        if round_ >= self.cs.valid_round:
+            self.cs.valid_block = block
+            self.cs.valid_round = round_
+        if round_ == self.cs.round and self.cs.step == Step.PREVOTE:
             await self._send_vote(PRECOMMIT, block_hash)
+
+    async def _on_prevote_nil_quorum(self, round_: int):
+        # Quorum of nil prevotes: no block can win this round. Move straight
+        # to precommit-nil instead of waiting out the full round timeout.
+        if round_ == self.cs.round and self.cs.step == Step.PREVOTE:
+            await self._send_vote(PRECOMMIT, NIL)
 
     async def _on_precommit_quorum(self, round_: int, block_hash: str):
         if self.cs.decided:
@@ -279,6 +375,7 @@ class ConsensusEngine:
         self._log(LogConsensus(self.height, self.cs.round, f'PRECOMMIT_QUORUM', f"Decide and apply block {short_addr(block_hash)}!", self.node_id))
 
         self.cs.decided = True
+        self.cs.step = Step.COMMIT
         if self._timeout_task:
             self._timeout_task.cancel()
         self.ledger.append(block)
@@ -289,6 +386,12 @@ class ConsensusEngine:
         self.height += 1
         self.cs = ConsensusState()
         await self._enter_round(0)
+
+    async def _on_precommit_nil_quorum(self, round_: int):
+        # Everyone agreed on nothing this round -- advance immediately
+        # rather than waiting out the full round_timeout.
+        if round_ == self.cs.round and not self.cs.decided:
+            await self._enter_round(round_ + 1)
 
     async def start(self):
         await self._enter_round(0)
