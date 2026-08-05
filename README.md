@@ -4,6 +4,12 @@ Layer 1 represents the core blockchain networks, such as Bitcoin and Ethereum. I
 - Transaction Processing: Records and verifies transactions.
 - Consensus Mechanism: Maintains decentralized agreement on blockchain state.
 
+## System Design
+
+- State: A key-value table (e.g. `alice: "Hi"`)
+- Transaction: An account (key) overwrite with a new message (value).
+- Consensus: minimal [Tendermint](https://arxiv.org/abs/1807.04938) style.
+
 ## Setting Up
 
 Create a virtual environment.
@@ -12,13 +18,9 @@ Create a virtual environment.
 pip install pynacl
 ```
 
-## System Design
-
-- State: A key-value table (e.g. `alice: "Hi"`)
-- Transaction: An account (key) overwrite with a new message (value).
-- Consensus: minimal [Tendermint](https://arxiv.org/abs/1807.04938) style.
-
 ## Run test cases
+
+Test T1 is available...
 
 ```bash
 python main.py --test TEST  # Run test cases (1-8)

@@ -23,8 +23,11 @@ class NetworkConfig:
     min_delay: float = 0.01
     max_delay: float = 0.15
     drop_rate: float = 0.0        # 0.0 - 1.0
+
     duplicate_rate: float = 0.0
-    reorder: bool = True           # if True, delay is randomized per-message (causes reordering)
+
+    reorder_list: list[float] = field(default_factory=list)
+
     stabilized: bool = True        # after stabilization, delay is bounded and no drops
     bounded_delay: float = 0.05    # Delta after stabilization
 
@@ -35,6 +38,10 @@ class Network:
         self.nodes: dict[str, "NodeInbox"] = {}
         self.log_path = Path(log_path) if log_path else None
         self._log_buffer = []
+
+        self._order_index = 0  # Start from first delay to last delay and add message to _log_reorder
+        self._log_reorder = []  # List of (delay, message) sorted by delay to show the order of received messages
+
         self.rng = random.Random(1337)  # seeded -> reproducible runs (T8)
 
     def set_seed(self, seed: int):
@@ -96,12 +103,16 @@ class Network:
             return
 
         delay = cfg.bounded_delay if cfg.stabilized else self.rng.uniform(cfg.min_delay, cfg.max_delay)
+        if self._order_index < len(cfg.reorder_list):
+            delay = cfg.reorder_list[self._order_index]
+            self._order_index += 1
         self._log(direction='SENT', message=log_message, message_state={'sending': 'SUCCEEDED', 'delay': round(delay, 4)})
 
         copies = 1
-        if not cfg.stabilized and self.rng.random() < cfg.duplicate_rate:
+        if self.rng.random() < cfg.duplicate_rate:
             copies = 2
             self._log(direction='SENT', message=log_message, message_state={'sending': 'DUPLICATED'})
+
 
         for _ in range(copies):
             receiver = log_message.log_body.to_node
