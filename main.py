@@ -1,6 +1,6 @@
 import asyncio
 
-from nacl.signing import SigningKey
+from nacl.signing import VerifyKey, SigningKey
 from src.crypto.signing import generate_keypair, pubkey_hex
 from src.types.messages import Transaction
 from src.network.simulator import Network, NetworkConfig
@@ -40,15 +40,15 @@ def create_nodes(num_nodes: int, network: Network) -> dict[str, Node]:
 
 def make_transaction(
         username: str, value: str,
-        sign_key: SigningKey
+        account: tuple[SigningKey, VerifyKey]
     ) -> Transaction:
     tx = Transaction(
-        sender=username,
+        sender=pubkey_hex(account[1]),
         key=STATE_FORMAT.format(username=username),
         value=value, 
         nonce=1,
     )
-    tx.sign(sign_key)
+    tx.sign(account[0])
     return tx
 
 
@@ -66,7 +66,7 @@ async def run_t1():
     tx = make_transaction(
         username="acc_00",
         value="Hi, I'm Alice!", 
-        sign_key=acc_00[0],
+        account=acc_00,
     )
     # Broadcast the tx to network
     for node in node_lookup.values():
