@@ -23,6 +23,11 @@ from ..execution.state import tx_root
 from ..network.simulator import Network
 
 
+# Fixed epoch for the logical clock (see ConsensusEngine._logical_timestamp).
+# Any constant works; this one is arbitrary but stable across runs.
+GENESIS_TIME = 1_700_000_000
+
+
 class Step(str, Enum):
     PROPOSE = "PROPOSE"
     PREVOTE = "PREVOTE"
@@ -82,7 +87,7 @@ class ConsensusEngine:
 
         self.height = len(ledger)
         self.cs = ConsensusState()
-        self._timeout_task: asyncio.Task | None = None
+        self._timeout_event: int | None = None
 
     # ---- logging -------------------------------------------------
 
@@ -107,13 +112,30 @@ class ConsensusEngine:
     def parent_hash(self) -> str:
         return self.ledger[-1].block_hash() if self.ledger else "GENESIS"
 
+    def _logical_timestamp(self, round_: int) -> float:
+        """Deterministic stand-in for a wall clock.
+
+        The header must commit to a timestamp, but time.time() makes the
+        block hash different on every run, which breaks the section-8
+        requirement that re-running the same configuration produce identical
+        logs and final state hash. A logical clock derived from (height,
+        round) is fully determined by the protocol state, so every node
+        computes the same value and every run reproduces it.
+
+        Real chains use wall-clock timestamps with a validity window; that
+        is a deliberate simplification here, documented in the report."""
+        return float(GENESIS_TIME + self.height * 1000 + round_)
+
     def _reset_round_timeout(self):
-        if self._timeout_task:
-            self._timeout_task.cancel()
-        self._timeout_task = asyncio.create_task(self._round_timeout())
+        # Scheduled on the network's virtual clock so timeout ordering is
+        # reproducible; a real-time asyncio task would race with message
+        # delivery differently on every run.
+        self.network.clock.cancel(self._timeout_event)
+        self._timeout_event = self.network.clock.schedule(
+            self.round_timeout, self._round_timeout
+        )
 
     async def _round_timeout(self):
-        await asyncio.sleep(self.round_timeout)
         log_msg = LogConsensus(self.height, self.cs.round, 'ROUND_TIMEOUT', "Round timeout", self.node_id)
         self._log(log_message=log_msg)
         # Rule: proposer silent/crashed -> timeout triggers, move to next round (T6)
@@ -155,7 +177,7 @@ class ConsensusEngine:
                 proposer=self.node_id,
                 state_root=new_state.state_root(),
                 tx_root=tx_root(txs),
-                timestamp=time.time(),
+                timestamp=self._logical_timestamp(round_),
             )
             header.sign(self.signing_key)
             block = Block(header=header, transactions=txs)
@@ -376,8 +398,7 @@ class ConsensusEngine:
 
         self.cs.decided = True
         self.cs.step = Step.COMMIT
-        if self._timeout_task:
-            self._timeout_task.cancel()
+        self.network.clock.cancel(self._timeout_event)
         self.ledger.append(block)
         for tx in block.transactions:
             self.state_store.apply(tx)

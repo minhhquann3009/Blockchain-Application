@@ -9,6 +9,7 @@ This is in-process (asyncio), not real sockets — that matches "simulated
 network" in the spec and keeps the lab focused on consensus, not I/O.
 """
 import asyncio
+import heapq
 import json
 import random
 import copy
@@ -17,6 +18,74 @@ from pathlib import Path
 from typing import Literal
 from dataclasses import dataclass, field
 from ..types.messages import LogMessage, NetworkBody, short_addr
+
+class VirtualClock:
+    """Deterministic discrete-event scheduler.
+
+    WHY THIS EXISTS. Seeding the RNG, fixing identities and using a logical
+    block timestamp is still not enough for byte-identical logs (spec s.8),
+    because delivery used `await asyncio.sleep(delay)` -- a REAL-time sleep.
+    Two messages scheduled with the same delay are woken by the event loop in
+    an order that depends on actual elapsed microseconds, so roughly one run
+    in five interleaved them differently. The final state hash stayed correct
+    (safety never depended on this), but the log line ORDER drifted.
+
+    The fix is to remove real time from the simulation entirely. Events are
+    held in a heap keyed by (virtual_time, insertion_sequence) and executed
+    one at a time, each to completion, before the next is popped. The
+    insertion sequence breaks ties, so equal-delay messages always resolve in
+    the same order. Simulated time only advances when an event fires.
+
+    This is the standard discrete-event simulation approach, and it makes
+    determinism a structural property rather than something we hope for.
+    """
+
+    def __init__(self):
+        self.now: float = 0.0
+        self._heap: list = []
+        self._seq: int = 0
+        self._cancelled: set[int] = set()
+
+    def schedule(self, delay: float, callback) -> int:
+        """Queue `callback` (an async zero-arg callable) at now + delay.
+        Returns an id usable with cancel()."""
+        self._seq += 1
+        event_id = self._seq
+        # round() keeps float addition from producing tie-break noise
+        heapq.heappush(self._heap, (round(self.now + delay, 9), event_id, callback))
+        return event_id
+
+    def cancel(self, event_id: int | None) -> None:
+        if event_id is not None:
+            self._cancelled.add(event_id)
+
+    def reset(self) -> None:
+        self.now = 0.0
+        self._heap.clear()
+        self._seq = 0
+        self._cancelled.clear()
+
+    async def run(self, until: float | None = None, stop_condition=None) -> None:
+        """Drain the event queue in deterministic order.
+
+        Stops when: the queue empties, virtual time passes `until`, or
+        `stop_condition()` returns True (checked between events).
+        """
+        while self._heap:
+            if stop_condition is not None and stop_condition():
+                return
+            when, event_id, callback = heapq.heappop(self._heap)
+            if event_id in self._cancelled:
+                self._cancelled.discard(event_id)
+                continue
+            if until is not None and when > until:
+                # put it back so a later run() can continue from here
+                heapq.heappush(self._heap, (when, event_id, callback))
+                self.now = until
+                return
+            self.now = when
+            await callback()
+
 
 @dataclass
 class NetworkConfig:
@@ -35,6 +104,7 @@ class NetworkConfig:
 class Network:
     def __init__(self, config: NetworkConfig, log_path: str|None = None):
         self.config = config
+        self.clock = VirtualClock()
         self.nodes: dict[str, "NodeInbox"] = {}
         self.log_path = Path(log_path) if log_path else None
         self._log_buffer = []
@@ -118,23 +188,29 @@ class Network:
             receiver = log_message.log_body.to_node
             consensus_step = network_body.msg_type
             payload = network_body.payload
-            asyncio.create_task(self._deliver(receiver, delay, consensus_step, payload, log_message))
+            # Deterministic: queued on the virtual clock, not a real-time task.
+            # Equal delays are tie-broken by insertion order, so delivery
+            # sequence is fully reproducible.
+            self.clock.schedule(
+                delay,
+                lambda r=receiver, s=consensus_step, p=payload, m=log_message:
+                    self._deliver(r, s, p, m),
+            )
 
     async def _deliver(
             self,
             receiver: str,
-            delay: float,
             consensus_step: Literal["PROPOSAL", "PREVOTE", "PRECOMMIT"],
-            payload: dict, 
+            payload: dict,
             log_message: LogMessage,
         ):
-        await asyncio.sleep(delay)
-
-        inbox = self.nodes.get(receiver)
-        if inbox is None:
+        node = self.nodes.get(receiver)
+        if node is None or getattr(node, "crashed", False):
+            # An unregistered or crashed node silently drops the message --
+            # exactly what T6 needs to model a validator that is not running.
             return
         self._log(direction='RECV', message=log_message)
-        await inbox.queue.put((consensus_step, payload))
+        await node.handle(consensus_step, payload)
 
     async def broadcast(
             self,
