@@ -57,6 +57,11 @@ class Node:
             await self.engine.on_vote("prevote", payload)
         elif msg_type == "PRECOMMIT":
             await self.engine.on_vote("precommit", payload)
+        elif msg_type == "BODY_REQUEST":
+            # `sender` is needed so the proposer knows where to send the body.
+            await self.engine.on_body_request(payload, payload["_from"])
+        elif msg_type == "BODY_RESPONSE":
+            await self.engine.on_body_response(payload)
 
     async def start(self):
         """Kick off consensus at the node's current height."""
