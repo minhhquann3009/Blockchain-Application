@@ -17,7 +17,7 @@ import time
 from enum import Enum
 from typing import Literal
 
-from ..types.messages import Block, BlockHeader, Vote, PREVOTE, PRECOMMIT, NIL
+from ..types.messages import Block, BlockHeader, Transaction, Vote, PREVOTE, PRECOMMIT, NIL
 from ..types.messages import LogMessage, NetworkBody, LogConsensus, short_addr
 from ..execution.state import tx_root
 from ..network.simulator import Network
@@ -63,6 +63,11 @@ class ConsensusState:
 
         # votes[round][phase] -> {validator: Vote}
         self.votes: dict[int, dict[str, dict[str, Vote]]] = {}
+
+        # pending_headers[round] -> (header, tx_hashes). A header we accepted
+        # but cannot act on until its body arrives (spec s.6 header-before-
+        # body). Cleared once the block is reassembled.
+        self.pending_headers: dict[int, tuple] = {}
 
         self.decided = False
 
@@ -238,6 +243,35 @@ class ConsensusEngine:
 
     # ---- message handlers --------------------------------------------
 
+    # ---- header-before-body gossip (spec s.6) -------------------------
+    #
+    # "Headers are broadcast before bodies; a body may be sent only after the
+    # receiver accepts the matching header."
+    #
+    # PROPOSAL carries the header plus the list of tx hashes -- never the tx
+    # themselves. A receiver first checks the header on its own merits
+    # (signature, height, parent, proposer). Only if the header is ACCEPTED
+    # does it ask for the missing bodies, and only in response to such a
+    # request does the proposer send them. A node that rejects the header
+    # never asks, so a bogus header cannot make anyone pull a body -- which
+    # is the point of the rule: the cheap check gates the expensive transfer.
+
+    def _accept_header(self, header: BlockHeader, round_: int) -> tuple[bool, str]:
+        """Cheap, body-independent checks. Returns (accepted, reason).
+
+        Deliberately excludes state_root and tx_root: those need the body,
+        and requiring them here would defeat the ordering the spec asks for.
+        """
+        if header.height != self.height:
+            return False, f"height {header.height} != {self.height}"
+        if header.parent_hash != self.parent_hash():
+            return False, "parent hash mismatch"
+        if header.proposer != self.proposer_for(self.height, round_):
+            return False, "not the proposer for this (height, round)"
+        if not header.verify():
+            return False, "invalid header signature"
+        return True, "accepted"
+
     async def on_proposal(self, payload: dict):
         round_ = payload["round"]
 
@@ -245,18 +279,88 @@ class ConsensusEngine:
         header = BlockHeader(**header_fields)
         header.signature = payload["header"]["signature"]
 
+        accepted, reason = self._accept_header(header, round_)
+        if not accepted:
+            self._log(LogConsensus(self.height, round_, 'HEADER_REJECTED',
+                                   f"Rejected header from {short_addr(header.proposer)}: {reason}",
+                                   self.node_id))
+            return
+
+        tx_hashes = payload["tx_hashes"]
+        tx_by_hash = {t.tx_hash(): t for t in self.mempool}
+        missing = [h for h in tx_hashes if h not in tx_by_hash]
+
+        if missing:
+            # Header accepted but body incomplete: park it and pull the
+            # missing tx from the proposer.
+            self.cs.pending_headers[round_] = (header, tx_hashes)
+            self._log(LogConsensus(self.height, round_, 'HEADER_ACCEPTED_BODY_REQUESTED',
+                                   f"Requested {len(missing)} tx bodies from "
+                                   f"{short_addr(header.proposer)}",
+                                   self.node_id))
+            await self._send_direct(header.proposer, "BODY_REQUEST",
+                                    {"round": round_, "tx_hashes": missing})
+            return
+
         # Preserve the PROPOSER's tx order (tx_root is order-sensitive) --
         # do not just filter the local mempool, which may be ordered
         # differently.
-        tx_by_hash = {t.tx_hash(): t for t in self.mempool}
-        if any(h not in tx_by_hash for h in payload["tx_hashes"]):
-            # Body not (yet) available locally (Section 6: header is
-            # broadcast before body). A full implementation would request
-            # the missing tx bodies here and retry once they arrive.
-            return
-        txs = [tx_by_hash[h] for h in payload["tx_hashes"]]
+        txs = [tx_by_hash[h] for h in tx_hashes]
         block = Block(header=header, transactions=txs)
         await self._handle_proposal_local(block, round_)
+
+    async def on_body_request(self, payload: dict, requester: str):
+        """Serve tx bodies -- only ones we actually hold, only those asked
+        for. The request itself is the receiver's proof that it accepted our
+        header, so this is the earliest point at which sending a body is
+        permitted."""
+        tx_by_hash = {t.tx_hash(): t for t in self.mempool}
+        bodies = [
+            tx_by_hash[h].signing_payload() | {"signature": tx_by_hash[h].signature}
+            for h in payload["tx_hashes"] if h in tx_by_hash
+        ]
+        self._log(LogConsensus(self.height, payload["round"], 'BODY_SENT',
+                               f"Sent {len(bodies)} tx bodies to {short_addr(requester)}",
+                               self.node_id))
+        await self._send_direct(requester, "BODY_RESPONSE",
+                                {"round": payload["round"], "bodies": bodies})
+
+    async def on_body_response(self, payload: dict):
+        """Absorb delivered bodies, then retry the header we parked."""
+        round_ = payload["round"]
+        added = 0
+        known = {t.tx_hash() for t in self.mempool}
+        for raw in payload["bodies"]:
+            tx = Transaction(**{k: v for k, v in raw.items() if k != "signature"})
+            tx.signature = raw["signature"]
+            # A body must match the hash we asked for AND carry a valid
+            # signature; otherwise the proposer could smuggle in anything.
+            if not tx.verify() or tx.tx_hash() in known:
+                continue
+            self.mempool.append(tx)
+            known.add(tx.tx_hash())
+            added += 1
+
+        self._log(LogConsensus(self.height, round_, 'BODY_RECEIVED',
+                               f"Accepted {added}/{len(payload['bodies'])} tx bodies",
+                               self.node_id))
+
+        parked = self.cs.pending_headers.pop(round_, None)
+        if parked is None:
+            return
+        header, tx_hashes = parked
+        tx_by_hash = {t.tx_hash(): t for t in self.mempool}
+        if any(h not in tx_by_hash for h in tx_hashes):
+            return  # still incomplete; a later response may finish the job
+        block = Block(header=header, transactions=[tx_by_hash[h] for h in tx_hashes])
+        await self._handle_proposal_local(block, round_)
+
+    async def _send_direct(self, target: str, msg_type: str, payload: dict):
+        """Point-to-point send. `_from` is carried inside the payload so the
+        recipient can reply without depending on transport metadata."""
+        body = NetworkBody(msg_type=msg_type, from_node=self.node_id,
+                           to_node=target, payload=payload | {"_from": self.node_id})
+        await self.network.send(self.height, self.cs.round, "NETWORK", body)
 
     async def _handle_proposal_local(self, block: Block, round_: int):
         # Keep the block for this round even if we're not ready to act on
