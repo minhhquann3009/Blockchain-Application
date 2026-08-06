@@ -8,6 +8,7 @@ from src.crypto.signing import generate_keypair, keypair_from_seed, pubkey_hex
 from src.types.messages import Transaction, short_addr
 from src.network.simulator import Network, NetworkConfig
 from src.node import Node
+from src.byzantine import ByzantineNode
 
 Account = tuple[SigningKey, VerifyKey]
 TimelineStep = tuple[float, Optional[Callable[[], None]]]
@@ -147,6 +148,66 @@ async def run_until_height(
             f"within {timeout} virtual seconds "
             f"(reached: {[len(n.ledger) for n in node_lookup.values()]})"
         )
+
+
+def create_byzantine_nodes(
+    num_nodes: int, network: Network, num_byzantine: int
+) -> tuple[dict[str, Node], set[str]]:
+    """Create `num_nodes` validators of which `num_byzantine` equivocate.
+
+    Identities are seeded so the scenario is reproducible. Returns the node
+    lookup plus the set of Byzantine node_ids, so assertions can be applied
+    to honest nodes only -- a Byzantine node's own ledger proves nothing.
+    """
+    accounts = [keypair_from_seed(i) for i in range(num_nodes)]
+    node_ids = sorted(pubkey_hex(vk) for _, vk in accounts)
+
+    # The Byzantine validators are chosen by position in the SORTED id list,
+    # so which node misbehaves does not depend on key-generation order.
+    byzantine_ids = set(node_ids[:num_byzantine])
+
+    node_lookup: dict[str, Node] = {}
+    for sign_key, verify_key in accounts:
+        node_id = pubkey_hex(verify_key)
+        cls = ByzantineNode if node_id in byzantine_ids else Node
+        node_lookup[node_id] = cls(
+            node_id=node_id,
+            signing_key=sign_key,
+            validators=node_ids,
+            network=network,
+        )
+    return node_lookup, byzantine_ids
+
+
+def assert_no_conflicting_finalization(
+    node_lookup: dict[str, Node], byzantine_ids: set[str]
+) -> None:
+    """SAFETY: no two honest nodes may finalize different blocks at the same
+    height. This is the property T7 exists to check -- stronger than "all
+    ledgers are equal", because honest nodes are allowed to be at different
+    heights; they are not allowed to disagree about a height they share.
+    """
+    by_height: dict[int, dict[str, str]] = {}
+    for node_id, node in node_lookup.items():
+        if node_id in byzantine_ids:
+            continue
+        for height, block in enumerate(node.ledger):
+            by_height.setdefault(height, {})[short_addr(node_id)] = block.block_hash()
+
+    for height, hashes in sorted(by_height.items()):
+        distinct = set(hashes.values())
+        assert len(distinct) == 1, (
+            f"SAFETY VIOLATION at height {height}: honest nodes finalized "
+            f"conflicting blocks -> {hashes}"
+        )
+    # Without this guard the check passes vacuously when honest nodes
+    # finalized nothing at all -- "no conflicting blocks" is trivially true
+    # of an empty ledger, and would hide a total liveness failure.
+    assert by_height, (
+        "TEST INEFFECTIVE: no honest node finalized any block, so there was "
+        "nothing to disagree about. Safety was not actually exercised."
+    )
+    print(f"Checked {len(by_height)} finalized heights: no conflicting finalization.")
 
 
 def report_state(node_lookup: dict[str, Node]) -> dict[str, Optional[str]]:
@@ -403,6 +464,41 @@ async def run_t8():
     print("T8 PASSED: byte-identical logs and identical final state hash across reruns.")
 
 
+async def run_t7():
+    """Up to f Byzantine validators equivocate on votes and proposals.
+    Safety must hold: no conflicting finalization among honest nodes."""
+    NUM_NODES = 4       # n = 3f+1 with f = 1
+    NUM_BYZANTINE = 1   # exactly the tolerated maximum
+
+    network = create_network(NetworkConfig(stabilized=True, bounded_delay=0.02), "logs/t7.jsonl")
+    network.set_seed(42)
+    node_lookup, byzantine_ids = create_byzantine_nodes(NUM_NODES, network, NUM_BYZANTINE)
+    print(f"Byzantine validators: {[short_addr(b) for b in sorted(byzantine_ids)]}")
+
+    acc_00 = keypair_from_seed(1000)
+    tx = make_transaction("acc_00", "Hi, I'm Alice!", acc_00)
+    for node in node_lookup.values():
+        node.submit_tx(tx)
+
+    await run_timeline(node_lookup, [(4.0, None)])
+    network.flush_log()
+
+    honest = {nid: n for nid, n in node_lookup.items() if nid not in byzantine_ids}
+    report_state(honest)
+    assert_no_conflicting_finalization(node_lookup, byzantine_ids)
+
+    equivocations = sum(
+        1 for line in Path("logs/t7.jsonl").read_text().splitlines()
+        if "BYZANTINE_EQUIVOCATE" in line
+    )
+    assert equivocations > 0, (
+        "TEST INEFFECTIVE: the Byzantine node never equivocated, so this run "
+        "proves nothing about safety under equivocation."
+    )
+    print(f"Byzantine node equivocated {equivocations} times; safety held throughout.")
+    print("T7 PASSED: no conflicting finalization despite f Byzantine validators.")
+
+
 SCENARIOS = {
     "1": run_t1,
     "2": run_t2,
@@ -410,6 +506,7 @@ SCENARIOS = {
     "4": run_t4,
     "5": run_t5,
     "6": run_t6,
+    "7": run_t7,
     "8": run_t8,
 }
 
