@@ -71,6 +71,7 @@ Run via `python main.py --test unit`, or individually:
 python3 tests/test_crypto.py      # signatures, domain separation
 python3 tests/test_execution.py   # determinism, replay, ownership
 python3 tests/test_network.py     # outbound rate limit, peer blocking
+python3 tests/test_gossip.py      # header-before-body gossip
 ```
 
 ## Cấu trúc project
@@ -126,8 +127,8 @@ config/                      # (for nhóm mở rộng: file-driven topology/scen
 |T7|Up to f Byzantine validators equivocate|PASS|
 |T8|Same seed rerun twice|PASS|
 
-Unit tests: crypto (4), execution (3), network (3).
-`python main.py --test all` reports 18/18.
+Unit tests: crypto (4), execution (3), network (3), gossip (3).
+`python main.py --test all` reports 21/21.
 
 ## Determinism (spec section 8)
 
@@ -146,10 +147,32 @@ time from the simulation entirely, making determinism structural.
 
 Verified identical on macOS and Linux: 48104-byte log, matching state root.
 
+## Header-before-body gossip (spec section 6)
+
+"Headers are broadcast before bodies; a body may be sent only after the
+receiver accepts the matching header."
+
+PROPOSAL carries the header plus a list of tx hashes -- never the transactions
+themselves. On receipt a validator runs `_accept_header()`, which checks only
+what can be checked without the body: height, parent hash, proposer for this
+(height, round), and the header signature. `state_root` and `tx_root` are
+deliberately excluded, since verifying them would require the body and defeat
+the ordering the rule exists to create.
+
+- header rejected -> logged `HEADER_REJECTED`, nothing further is sent
+- header accepted, body missing -> parked in `pending_headers[round]`,
+  `BODY_REQUEST` sent to the proposer (`HEADER_ACCEPTED_BODY_REQUESTED`)
+- proposer replies `BODY_RESPONSE` with only the requested tx (`BODY_SENT`)
+- receiver verifies each body's signature and hash before admitting it
+  (`BODY_RECEIVED`), then reassembles the block and resumes consensus
+
+The request is the receiver's proof of acceptance, so a bogus header can never
+cause anyone to pull a body: the cheap check gates the expensive transfer.
+
+Note that the T1-T8 scenarios seed the same transaction into every mempool, so
+this path does not fire there. `tests/test_gossip.py` gives the transaction to
+the proposer alone, which is the only way to exercise it.
+
 ## Remaining work
 
-- [ ] Header-before-body gossip: the spec (s.6) requires a body to be sent
-      only after the receiver accepts the matching header. Currently a
-      proposal references transactions the receiver is assumed to already
-      hold in its mempool.
 - [ ] REPORT.pdf

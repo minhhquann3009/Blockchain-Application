@@ -517,6 +517,7 @@ UNIT_TEST_MODULES = [
     "tests.test_crypto",
     "tests.test_execution",
     "tests.test_network",
+    "tests.test_gossip",
 ]
 
 
