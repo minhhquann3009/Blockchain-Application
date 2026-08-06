@@ -258,12 +258,52 @@ async def run_t5():
     print("T5 PASSED: quorum of correct nodes converged on the same finalized chain.")
 
 
+async def run_t6():
+    """Proposer for round 0 is silent/crashed from genesis (never started).
+    Honest nodes must ROUND_TIMEOUT, advance to round 1 where a different
+    (honest) proposer is elected, and still finalize -- liveness after a
+    correct proposer is eventually selected."""
+    NUM_NODES = 4  # f=1, quorum=3: tolerates exactly 1 crashed validator
+    network = create_network(NetworkConfig(stabilized=True, bounded_delay=0.02), "logs/t6.jsonl")
+    node_lookup = create_nodes(NUM_NODES, network)
+
+    acc_00 = generate_keypair()
+    tx = make_transaction("acc_00", "Hi, I'm Alice!", acc_00)
+    for node in node_lookup.values():
+        node.submit_tx(tx)
+
+    # proposer_for(height=0, round=0) == sorted_validators[0] -- crash exactly
+    # that node by never starting its run() loop. It stays registered on the
+    # network (so proposer election still counts it, per the fixed validator
+    # set assumption) but never proposes, prevotes, or precommits.
+    sorted_ids = sorted(node_lookup.keys())
+    crashed_id = sorted_ids[0]
+    honest_nodes = {nid: n for nid, n in node_lookup.items() if nid != crashed_id}
+    print(f"Simulating crash: proposer {short_addr(crashed_id)} never starts.")
+
+    tasks = [asyncio.create_task(node.run()) for node in honest_nodes.values()]
+    try:
+        # must cover: round_timeout (0.5s) + round-1 propose/prevote/precommit
+        await asyncio.sleep(4.0)
+    finally:
+        for node in honest_nodes.values():
+            node.stop()
+    network.flush_log()
+
+    last_hashes = report_state(honest_nodes)
+    assert_unanimous(last_hashes)
+    assert all(len(n.ledger) > 0 for n in honest_nodes.values()), \
+        "LIVENESS VIOLATION: honest quorum failed to finalize despite the silent proposer."
+    print("T6 PASSED: honest nodes timed out on the silent proposer, elected a new one, and finalized.")
+
+
 SCENARIOS = {
     "1": run_t1,
     "2": run_t2,
     "3": run_t3,
     "4": run_t4,
     "5": run_t5,
+    "6": run_t6,
 }
 
 if __name__ == "__main__":
