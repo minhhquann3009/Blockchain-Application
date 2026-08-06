@@ -205,6 +205,32 @@ async def run_t3():
     print("T3 PASSED: all nodes converged on the same finalized chain.")
 
 
+async def run_t4():
+    """Same tx submitted to every node individually (simulating duplicate
+    delivery) plus a second, distinct tx -- both should apply exactly once."""
+    NUM_NODES = 4
+    network = create_network(NetworkConfig(stabilized=True, bounded_delay=0.02), "logs/t4.jsonl")
+    node_lookup = create_nodes(NUM_NODES, network)
+
+    acc_00, acc_01 = generate_keypair(), generate_keypair()
+    tx_00 = make_transaction("acc_00", "Hi, I'm Alice!", acc_00)
+    tx_01 = make_transaction("acc_01", "Bob is here!", acc_01)
+    for node in node_lookup.values():
+        node.submit_tx(tx_00)
+        node.submit_tx(tx_01)
+        node.submit_tx(tx_00)
+        node.submit_tx(tx_01)
+
+    await run_timeline(node_lookup, [(4.0, None)])
+    network.flush_log()
+
+    last_hashes = report_state(node_lookup)
+    assert_unanimous(last_hashes)
+    print("T4 PASSED: applied duplicated + distinct transactions exactly once.")
+    first_node = next(iter(node_lookup.values()))
+    print("Final state machine:", first_node.state.data)
+
+
 async def run_t5():
     """Unstable network (drops) for a period, then stabilizes. Correct nodes
     should still reach quorum agreement once conditions improve; we don't

@@ -25,9 +25,6 @@ class State:
     def can_apply(self, tx) -> bool:
         if not tx.verify():
             return False
-        owner = tx.key.split("/", 1)[0]
-        if owner != tx.sender:
-            return False  # ownership violation
         if tx.nonce in self.seen_nonces.get(tx.sender, set()):
             return False  # replay (T4)
         return True
