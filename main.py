@@ -1,9 +1,10 @@
 import asyncio
+from pathlib import Path
 import argparse
 from typing import Callable, Optional
 
 from nacl.signing import VerifyKey, SigningKey
-from src.crypto.signing import generate_keypair, pubkey_hex
+from src.crypto.signing import generate_keypair, keypair_from_seed, pubkey_hex
 from src.types.messages import Transaction, short_addr
 from src.network.simulator import Network, NetworkConfig
 from src.node import Node
@@ -43,8 +44,16 @@ def _node_lookup_from(validators: list[Account], network: Network, tamper_ids: s
 
 
 def create_nodes(num_nodes: int, network: Network) -> dict[str, Node]:
-    """Create `num_nodes` honest validators."""
+    """Create `num_nodes` honest validators with fresh random identities."""
     validators = [generate_keypair() for _ in range(num_nodes)]
+    return _node_lookup_from(validators, network, tamper_ids=set())
+
+
+def create_deterministic_nodes(num_nodes: int, network: Network) -> dict[str, Node]:
+    """Create `num_nodes` honest validators whose identities are derived from
+    fixed seeds, so node_ids -- and therefore proposer order and every log
+    line -- are identical on every run. Required for T8."""
+    validators = [keypair_from_seed(i) for i in range(num_nodes)]
     return _node_lookup_from(validators, network, tamper_ids=set())
 
 
@@ -87,15 +96,57 @@ async def run_timeline(node_lookup: dict[str, Node], timeline: list[TimelineStep
     its in-flight step yet, and any exception raised inside run() was
     previously discarded silently because the tasks were never awaited.
     """
-    tasks = [asyncio.create_task(node.run()) for node in node_lookup.values()]
-    try:
-        for duration, callback in timeline:
-            await asyncio.sleep(duration)
-            if callback is not None:
-                callback()
-    finally:
-        for node in node_lookup.values():
-            node.stop()
+    network = next(iter(node_lookup.values())).network
+    clock = network.clock
+
+    for node in node_lookup.values():
+        await node.start()
+
+    # `duration` is now VIRTUAL seconds: we advance the clock by draining
+    # events up to a deadline rather than sleeping in real time. Same
+    # scenario semantics, but the amount of work done is a property of the
+    # protocol instead of the host machine's speed.
+    deadline = clock.now
+    for duration, callback in timeline:
+        deadline += duration
+        await clock.run(until=deadline)
+        if callback is not None:
+            callback()
+
+
+async def run_until_height(
+    node_lookup: dict[str, Node],
+    target_height: int,
+    timeout: float = 30.0,
+) -> None:
+    """Run every node until they have ALL finalized `target_height` blocks,
+    then stop.
+
+    Wall-clock run lengths ("sleep 4 seconds") are the third source of
+    nondeterminism: a slower or faster machine finalizes a different number
+    of blocks, so the logs differ in length between runs even when
+    everything else is fixed. Stopping on a *logical* condition makes the
+    amount of work performed a property of the protocol, not of the host.
+
+    `timeout` is a safety net against a hung run, not a stop condition -- if
+    it fires, the scenario has failed to make progress and we say so.
+    """
+    clock = next(iter(node_lookup.values())).network.clock
+
+    for node in node_lookup.values():
+        await node.start()
+
+    def reached() -> bool:
+        return all(len(n.ledger) >= target_height for n in node_lookup.values())
+
+    await clock.run(until=clock.now + timeout, stop_condition=reached)
+
+    if not reached():
+        raise TimeoutError(
+            f"LIVENESS FAILURE: nodes did not all reach height {target_height} "
+            f"within {timeout} virtual seconds "
+            f"(reached: {[len(n.ledger) for n in node_lookup.values()]})"
+        )
 
 
 def report_state(node_lookup: dict[str, Node]) -> dict[str, Optional[str]]:
@@ -258,12 +309,108 @@ async def run_t5():
     print("T5 PASSED: quorum of correct nodes converged on the same finalized chain.")
 
 
+async def run_t6():
+    """Proposer for round 0 is silent/crashed from genesis (never started).
+    Honest nodes must ROUND_TIMEOUT, advance to round 1 where a different
+    (honest) proposer is elected, and still finalize -- liveness after a
+    correct proposer is eventually selected."""
+    NUM_NODES = 4  # f=1, quorum=3: tolerates exactly 1 crashed validator
+    network = create_network(NetworkConfig(stabilized=True, bounded_delay=0.02), "logs/t6.jsonl")
+    node_lookup = create_nodes(NUM_NODES, network)
+
+    acc_00 = generate_keypair()
+    tx = make_transaction("acc_00", "Hi, I'm Alice!", acc_00)
+    for node in node_lookup.values():
+        node.submit_tx(tx)
+
+    # proposer_for(height=0, round=0) == sorted_validators[0] -- crash exactly
+    # that node by never starting its run() loop. It stays registered on the
+    # network (so proposer election still counts it, per the fixed validator
+    # set assumption) but never proposes, prevotes, or precommits.
+    sorted_ids = sorted(node_lookup.keys())
+    crashed_id = sorted_ids[0]
+    node_lookup[crashed_id].crash()
+    honest_nodes = {nid: n for nid, n in node_lookup.items() if nid != crashed_id}
+    print(f"Simulating crash: proposer {short_addr(crashed_id)} is silent.")
+
+    # must cover: round_timeout (0.5s) + round-1 propose/prevote/precommit
+    await run_timeline(node_lookup, [(4.0, None)])
+    network.flush_log()
+
+    last_hashes = report_state(honest_nodes)
+    assert_unanimous(last_hashes)
+    assert all(len(n.ledger) > 0 for n in honest_nodes.values()), \
+        "LIVENESS VIOLATION: honest quorum failed to finalize despite the silent proposer."
+    print("T6 PASSED: honest nodes timed out on the silent proposer, elected a new one, and finalized.")
+
+
+async def _t8_single_run(log_path: str) -> tuple[str, str]:
+    """One fully-determined run. Returns (final_state_root, last_block_hash).
+
+    Everything that could vary between runs is pinned:
+      - identities come from fixed seeds (create_deterministic_nodes)
+      - the network RNG is seeded
+      - the block header timestamp is a logical clock (see engine.py)
+      - the run stops on a logical condition, not on elapsed wall time
+    """
+    NUM_NODES = 4
+    TARGET_HEIGHT = 5
+
+    network = create_network(NetworkConfig(stabilized=True, bounded_delay=0.02), log_path)
+    network.set_seed(42)
+    node_lookup = create_deterministic_nodes(NUM_NODES, network)
+
+    acc_00 = keypair_from_seed(1000)  # fixed sender identity too
+    tx = make_transaction("acc_00", "Hi, I'm Alice!", acc_00)
+    for node in node_lookup.values():
+        node.submit_tx(tx)
+
+    await run_until_height(node_lookup, TARGET_HEIGHT)
+    network.flush_log()
+
+    first_node = next(iter(node_lookup.values()))
+    return first_node.state.state_root(), first_node.ledger[-1].block_hash()
+
+
+async def run_t8():
+    """Same configuration run twice must produce byte-identical logs and the
+    same final state hash (spec section 8)."""
+    root_1, head_1 = await _t8_single_run("logs/t8_run1.jsonl")
+    root_2, head_2 = await _t8_single_run("logs/t8_run2.jsonl")
+
+    log_1 = Path("logs/t8_run1.jsonl").read_bytes()
+    log_2 = Path("logs/t8_run2.jsonl").read_bytes()
+
+    print(f"Run 1: {len(log_1)} bytes, state_root {short_addr(root_1)}, head {short_addr(head_1)}")
+    print(f"Run 2: {len(log_2)} bytes, state_root {short_addr(root_2)}, head {short_addr(head_2)}")
+
+    assert root_1 == root_2, f"DETERMINISM VIOLATION: final state hash differs ({root_1} vs {root_2})"
+    assert head_1 == head_2, f"DETERMINISM VIOLATION: final block hash differs ({head_1} vs {head_2})"
+
+    if log_1 != log_2:
+        lines_1, lines_2 = log_1.decode().splitlines(), log_2.decode().splitlines()
+        for i, (a, b) in enumerate(zip(lines_1, lines_2)):
+            if a != b:
+                raise AssertionError(
+                    f"DETERMINISM VIOLATION: logs diverge at line {i + 1}\n"
+                    f"  run1: {a}\n  run2: {b}"
+                )
+        raise AssertionError(
+            f"DETERMINISM VIOLATION: log lengths differ "
+            f"({len(lines_1)} vs {len(lines_2)} lines)"
+        )
+
+    print("T8 PASSED: byte-identical logs and identical final state hash across reruns.")
+
+
 SCENARIOS = {
     "1": run_t1,
     "2": run_t2,
     "3": run_t3,
     "4": run_t4,
     "5": run_t5,
+    "6": run_t6,
+    "8": run_t8,
 }
 
 if __name__ == "__main__":
