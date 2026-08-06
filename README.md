@@ -33,6 +33,10 @@ In test T3
 - Tampering transaction result in invalid transaction (logging `VAL06_BLOCK`) when a proposed block is validated.
 - Tampering nodes (validators) result in invalid block header (logging `VAL03_BLOCK`), and invalid vote (`ON_VOTE_PREVOTE`, `ON_VOTE_PRECOMMIT`).
 
+In test T4
+- Transactions made by an account is ordered by `nounce` value, later transactions use higher nonce. This helps applying transactions in sequencially. Before applying, transactions are verified using the signature, and checked for replayed using the `nonnce` value.
+- When a transaction is replayed/duplicated, they hold the same `nonce` and only first one is applied.
+
 In test T5
 - Drop messages may lead to some nodes failed to move to next step. If correct nodes smaller than quorum, they move to next round and restart proposing and voting. If correct nodes satistfy quorum, all correct nodes will eventually converge to some chain.
 - The test start with unreliable network (drop, delay), then stablize the network until correct nodes converge.
