@@ -98,6 +98,9 @@ class ConsensusEngine:
 
     def _log(self, log_message: LogConsensus):
         entry = {
+            # Same virtual timestamp as network events, so consensus and
+            # network lines interleave on one comparable time axis.
+            'ts': round(self.network.clock.now, 6),
             'h': log_message.height,
             'r': log_message.round,
             'event': log_message.event,
