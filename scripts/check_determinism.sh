@@ -9,6 +9,37 @@
 # PYTHONHASHSEED, catching anything that depends on set/dict hash ordering.
 set -u
 
+# Pick an interpreter that can actually import the crypto dependency.
+# `python3` and `python` often point at different installs (Homebrew vs
+# system vs venv on macOS), and pynacl may only be present in one of them.
+# Override explicitly with:  PYTHON=/path/to/python bash scripts/...
+pick_python() {
+    # An explicit PYTHON is still checked -- a typo'd path should fail here
+    # with a clear message, not fifty lines later inside the run.
+    if [ -n "${PYTHON:-}" ]; then
+        if "$PYTHON" -c "import nacl" > /dev/null 2>&1; then
+            echo "$PYTHON"
+        fi
+        return
+    fi
+    for candidate in python3 python; do
+        if command -v "$candidate" > /dev/null 2>&1 \
+           && "$candidate" -c "import nacl" > /dev/null 2>&1; then
+            echo "$candidate"; return
+        fi
+    done
+    echo ""
+}
+
+PY_BIN="$(pick_python)"
+if [ -z "$PY_BIN" ]; then
+    echo "FAIL: no Python interpreter with pynacl installed."
+    echo "  Install it:            pip install pynacl"
+    echo "  Or point at one:       PYTHON=/path/to/python bash $0 $*"
+    exit 2
+fi
+echo "Using interpreter: $PY_BIN ($("$PY_BIN" --version 2>&1))"
+
 SCENARIO="${1:-1}"
 # T8 runs the scenario twice internally and writes two log files; every other
 # scenario writes a single logs/tN.jsonl.
@@ -22,11 +53,11 @@ cd "$(dirname "$0")/.." || exit 2
 
 echo "Determinism check: scenario T${SCENARIO}, two separate processes"
 
-python3 main.py --test "$SCENARIO" > /tmp/det_run1.out 2>&1 || {
+"$PY_BIN" main.py --test "$SCENARIO" > /tmp/det_run1.out 2>&1 || {
     echo "FAIL: run 1 exited non-zero"; cat /tmp/det_run1.out; exit 1; }
 cp "$LOG" /tmp/det_run1.jsonl
 
-python3 main.py --test "$SCENARIO" > /tmp/det_run2.out 2>&1 || {
+"$PY_BIN" main.py --test "$SCENARIO" > /tmp/det_run2.out 2>&1 || {
     echo "FAIL: run 2 exited non-zero"; cat /tmp/det_run2.out; exit 1; }
 cp "$LOG" /tmp/det_run2.jsonl
 

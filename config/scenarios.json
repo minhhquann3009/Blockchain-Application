@@ -1,0 +1,61 @@
+{
+  "_comment": [
+    "File-driven scenario configuration (spec s.6: 'Connections and delay",
+    "patterns may be random or file-driven'; s.6 also requires the simulator",
+    "to support a configurable number of nodes, at least 8).",
+    "",
+    "Values in 'default' apply to every scenario; a scenario's own block",
+    "overrides them. Editing this file changes a run without touching code.",
+    "",
+    "num_nodes      : validator count, n = 3f+1 so f = (n-1)//3",
+    "bounded_delay  : delivery delay in virtual seconds once stabilized",
+    "min_delay/max_delay : delay range before stabilization",
+    "drop_rate      : probability a message is dropped pre-stabilization",
+    "duplicate_rate : probability a message is duplicated",
+    "rate_limit     : max messages per sender per rate_window (0 = disabled)",
+    "duration       : virtual seconds to run",
+    "num_byzantine  : equivocating validators (T7 only, must be <= f)",
+    "num_tamper     : validators given a mismatched node id (T3 only)"
+  ],
+
+  "default": {
+    "num_nodes": 8,
+    "bounded_delay": 0.02,
+    "min_delay": 0.01,
+    "max_delay": 0.15,
+    "drop_rate": 0.0,
+    "duplicate_rate": 0.0,
+    "rate_limit": 0,
+    "rate_window": 1.0,
+    "block_duration": 1.0,
+    "duration": 4.0
+  },
+
+  "T1": {},
+
+  "T2": {
+    "duplicate_rate": 0.5
+  },
+
+  "T3": {
+    "num_tamper": 1
+  },
+
+  "T4": {},
+
+  "T5": {
+    "drop_rate": 0.4,
+    "stabilize_after": 1.0
+  },
+
+  "T6": {},
+
+  "T7": {
+    "num_byzantine": 2
+  },
+
+  "T8": {
+    "target_height": 5,
+    "seed": 42
+  }
+}
