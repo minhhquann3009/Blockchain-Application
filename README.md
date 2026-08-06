@@ -136,8 +136,12 @@ validation (6), network (3), gossip (3).
 ### Determinism script (spec s.8)
 
 ```bash
-./scripts/check_determinism.sh 1   # any scenario 1-8
+bash scripts/check_determinism.sh 1   # any scenario 1-8
 ```
+
+The script picks whichever of `python3` / `python` can import pynacl -- on
+macOS those frequently point at different installs. Override with
+`PYTHON=/path/to/python bash scripts/check_determinism.sh 1`.
 
 Runs the scenario in two SEPARATE processes and diffs the log files on disk,
 so nothing held in memory can mask a nondeterminism and each run gets a fresh
