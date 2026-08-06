@@ -25,6 +25,15 @@ class State:
     def can_apply(self, tx) -> bool:
         if not tx.verify():
             return False
+        # Ownership (spec s.7: "Each transaction affects only data owned by
+        # its sender"). Keys are namespaced "<pubkey_hex>/<name>", so the
+        # prefix IS the owner and no separate registry is needed. Without
+        # this check any signed transaction could overwrite anyone's state:
+        # the signature proves who sent it, not that they were entitled to
+        # write that key.
+        owner, sep, _ = tx.key.partition("/")
+        if not sep or owner != tx.sender:
+            return False
         if tx.nonce in self.seen_nonces.get(tx.sender, set()):
             return False  # replay (T4)
         return True

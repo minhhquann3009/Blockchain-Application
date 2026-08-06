@@ -66,9 +66,12 @@ def create_tamper_nodes(num_nodes: int, network: Network, num_tamper: int) -> di
 
 
 def make_transaction(username: str, value: str, account: Account) -> Transaction:
+    sender = pubkey_hex(account[1])
     tx = Transaction(
-        sender=pubkey_hex(account[1]),
-        key=username,
+        sender=sender,
+        # Namespaced so the execution layer can enforce ownership: only the
+        # holder of this key pair can write under this prefix.
+        key=f"{sender}/{username}",
         value=value,
         nonce=1,
     )
@@ -510,14 +513,109 @@ SCENARIOS = {
     "8": run_t8,
 }
 
+UNIT_TEST_MODULES = [
+    "tests.test_crypto",
+    "tests.test_execution",
+    "tests.test_network",
+]
+
+
+def run_unit_tests() -> list[tuple[str, bool, str]]:
+    """Run every test_* function in each unit-test module.
+
+    Kept dependency-free (no pytest) so `python main.py --test all` is the
+    single entry point the spec asks for, with nothing extra to install."""
+    import importlib, traceback
+
+    results = []
+    for module_name in UNIT_TEST_MODULES:
+        module = importlib.import_module(module_name)
+        for name in sorted(dir(module)):
+            if not name.startswith("test_"):
+                continue
+            func = getattr(module, name)
+            if not callable(func):
+                continue
+            label = f"{module_name}.{name}"
+            try:
+                func()
+                results.append((label, True, ""))
+            except Exception:
+                results.append((label, False, traceback.format_exc(limit=2)))
+    return results
+
+
+async def run_scenarios() -> list[tuple[str, bool, str]]:
+    """Run every T1-T8 scenario, collecting results instead of stopping at
+    the first failure."""
+    results: list[tuple[str, bool, str]] = []
+    for key in sorted(SCENARIOS):
+        print(f"\n----- T{key} " + "-" * 48)
+        try:
+            await SCENARIOS[key]()
+            results.append((f"T{key}", True, ""))
+        except Exception as exc:
+            print(f"  FAILED: {exc}")
+            results.append((f"T{key}", False, str(exc)))
+    return results
+
+
+def run_everything() -> int:
+    """Single entry point (spec s.9): unit tests, then all scenarios.
+
+    Unit tests run BEFORE asyncio.run() rather than inside it: some of them
+    drive the simulator with their own asyncio.run(), which raises if a loop
+    is already running. Keeping the two phases in separate loops also stops
+    a scenario's leftover tasks from leaking into a unit test.
+    """
+    print("=" * 62)
+    print("UNIT TESTS")
+    print("=" * 62)
+    results = run_unit_tests()
+    for label, ok, err in results:
+        print(f"  {'PASS' if ok else 'FAIL'}  {label}")
+        if not ok:
+            print(err)
+
+    print()
+    print("=" * 62)
+    print("SCENARIOS")
+    print("=" * 62)
+    results += asyncio.run(run_scenarios())
+
+    failed = [label for label, ok, _ in results if not ok]
+    print()
+    print("=" * 62)
+    print(f"SUMMARY: {len(results) - len(failed)}/{len(results)} passed")
+    if failed:
+        print("FAILED: " + ", ".join(failed))
+    print("=" * 62)
+    return 1 if failed else 0
+
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    import sys
+
+    parser = argparse.ArgumentParser(
+        description="Lab 01 BFT blockchain simulator. "
+                    "Use --test all to run everything from one entry point."
+    )
     parser.add_argument(
         "--test",
         default="1",
-        choices=sorted(SCENARIOS.keys()),
-        help="Which test case to run",
+        choices=sorted(SCENARIOS.keys()) + ["all", "unit"],
+        help="Scenario number, 'unit' for unit tests only, or 'all' for everything",
     )
     args = parser.parse_args()
 
-    asyncio.run(SCENARIOS[args.test]())
+    if args.test == "all":
+        sys.exit(run_everything())
+    elif args.test == "unit":
+        results = run_unit_tests()
+        for label, ok, err in results:
+            print(f"  {'PASS' if ok else 'FAIL'}  {label}")
+            if not ok:
+                print(err)
+        sys.exit(1 if any(not ok for _, ok, _ in results) else 0)
+    else:
+        asyncio.run(SCENARIOS[args.test]())

@@ -21,8 +21,14 @@ pip install pynacl
 ## Run test cases
 
 ```bash
-python main.py --test TEST  # Run test cases (1-8)
+python main.py --test all   # EVERYTHING: unit tests + scenarios T1-T8 (single entry point)
+python main.py --test unit  # unit tests only
+python main.py --test 7     # one scenario (1-8)
 ```
+
+`--test all` is the single reproducible entry point required by the spec
+(section 9). It prints a per-test PASS/FAIL line and exits non-zero on any
+failure, so it can be used in CI.
 
 In test T2
 - Duplicated votes made by the same node (validator) is rejected.
@@ -45,7 +51,7 @@ In test T5
 
 Log network interaction between nodes with:
 - Three types of messages (`PROPOSAL`, `PREVOTE`, `PRECOMMIT`) and two directions (`SENT`, `RECV`).
-- Sending messages (`SENT`) in an unreliable network (configured `stabilized=False`) can result in being delayed (`SUCCEEDED` with delay time), duplicated (`DUPLICATED`), dropped (`DROPPED`), or reordered (not yet implemented).
+- Sending messages (`SENT`) in an unreliable network (configured `stabilized=False`) can result in being delayed (`SUCCEEDED` with delay time), duplicated (`DUPLICATED`), dropped (`DROPPED`), reordered (via the configured `reorder_list` delays), or suppressed by rate limiting (`BLOCKED` / `UNBLOCKED`).
 
 Log events of consensus algorithms:
 
@@ -57,14 +63,15 @@ Log events of consensus algorithms:
 |`PREVOTE_QUORUM`|Before sending precommit vote|`def _on_prevote_quorum()`|
 |`PRECOMMIT_QUORUM`|Before deciding and applying a block's transactions|`def _on_precommit_quorum()`|
 
-## Chạy unit test
+## Unit tests
+
+Run via `python main.py --test unit`, or individually:
 
 ```bash
-python3 tests/test_crypto.py
-python3 tests/test_execution.py
+python3 tests/test_crypto.py      # signatures, domain separation
+python3 tests/test_execution.py   # determinism, replay, ownership
+python3 tests/test_network.py     # outbound rate limit, peer blocking
 ```
-
-(Có thể chuyển sang `pytest` khi nhóm mở rộng thêm test — cấu trúc file đã tương thích.)
 
 ## Cấu trúc project
 
@@ -78,11 +85,12 @@ src/
 ├── execution/
 │   └── state.py       # deterministic state transition function, replay protection
 ├── network/
-│   └── simulator.py   # asyncio-based network: delay/drop/duplicate + event logging
+│   └── simulator.py   # VirtualClock scheduler, delay/drop/duplicate/rate-limit + logging
 ├── consensus/
 │   └── engine.py       # Tendermint-style propose/prevote/precommit + locking rules
+├── byzantine.py         # equivocating validator used by T7
 └── node.py              # wires crypto+network+consensus+execution into one node
-main.py                    # entry point: spins up N nodes, runs T1
+main.py                    # single entry point: scenarios T1-T8 + unit test runner
 tests/                      # unit tests
 logs/                        # network + consensus event logs (JSON lines)
 config/                      # (for nhóm mở rộng: file-driven topology/scenario config)
@@ -104,3 +112,44 @@ config/                      # (for nhóm mở rộng: file-driven topology/scen
 - **Domain separation**: `TX:<chain_id>`, `HEADER:<chain_id>`, `VOTE:<chain_id>` — chữ ký của loại message này không thể replay sang loại khác.
 - **Quorum**: với n = 3f+1 validator, quorum = 2f+1 (>2n/3), đúng theo giả định BFT trong đề.
 - **Locking**: `ConsensusState.locked_block` / `locked_round` implement đúng rule 4-5 trong mục 6.1 của đề bài.
+
+## Test status
+
+| Test | Scenario | Status |
+|-|-|-|
+|T1|Normal run, no faults|PASS|
+|T2|Duplicate / reordered messages|PASS|
+|T3|Invalid signature / wrong domain|PASS|
+|T4|Replayed / duplicate transaction|PASS|
+|T5|Drop / delay before synchrony|PASS|
+|T6|Proposer silent / crashed|PASS|
+|T7|Up to f Byzantine validators equivocate|PASS|
+|T8|Same seed rerun twice|PASS|
+
+Unit tests: crypto (4), execution (3), network (3).
+`python main.py --test all` reports 18/18.
+
+## Determinism (spec section 8)
+
+Byte-identical reruns required removing four sources of nondeterminism:
+
+1. random key generation -> `keypair_from_seed()`
+2. `time.time()` in the block header -> logical clock over `(height, round)`
+3. wall-clock run length -> `run_until_height()` stops on a logical condition
+4. `asyncio.sleep()` delivery -> `VirtualClock`, a discrete-event scheduler
+
+Item 4 was the subtle one: with 1-3 fixed, reruns still diverged roughly one
+time in five, because equal-delay messages were woken by the event loop in an
+order that depended on real elapsed microseconds. The final state hash was
+always correct -- only log line ORDER drifted. The virtual clock removes real
+time from the simulation entirely, making determinism structural.
+
+Verified identical on macOS and Linux: 48104-byte log, matching state root.
+
+## Remaining work
+
+- [ ] Header-before-body gossip: the spec (s.6) requires a body to be sent
+      only after the receiver accepts the matching header. Currently a
+      proposal references transactions the receiver is assumed to already
+      hold in its mempool.
+- [ ] REPORT.pdf
