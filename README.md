@@ -1,212 +1,170 @@
-# Design and implement Layer 1 of Blockchain.
+# Lab 01 — Blockchain Layer 1 tối giản với đồng thuận BFT
 
-Layer 1 represents the core blockchain networks, such as Bitcoin and Ethereum. It ensures security and decentralization through consensus mechanisms like Proof-of-Work (PoW) and Proof-of-Stake (PoS).
-- Transaction Processing: Records and verifies transactions.
-- Consensus Mechanism: Maintains decentralized agreement on blockchain state.
+Mô phỏng một blockchain Layer 1 đạt finality tin cậy trên mạng không đáng tin cậy.
+Đồng thuận theo kiểu Tendermint (Prevote/Precommit) với `n = 3f + 1` validator,
+thực thi trạng thái deterministic, mạng mô phỏng có delay/drop/duplicate/reorder.
 
-## System Design
+## Yêu cầu môi trường
 
-- State: A key-value table (e.g. `alice: "Hi"`)
-- Transaction: An account (key) overwrite with a new message (value).
-- Consensus: minimal [Tendermint](https://arxiv.org/abs/1807.04938) style.
+- Python 3.10 trở lên
+- Thư viện `pynacl` (chữ ký Ed25519)
 
-## Setting Up
-
-Create a virtual environment.
+## Cài đặt
 
 ```bash
+python3 -m pip install pynacl
+```
+
+Dùng `python3 -m pip` thay vì `pip` để đảm bảo cài đúng interpreter sẽ chạy chương trình.
+
+Nếu gặp lỗi `externally-managed-environment`, dùng virtual environment:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install pynacl
 ```
 
-## Run test cases
+## Chạy chương trình
+
+### Chạy toàn bộ (điểm vào duy nhất)
 
 ```bash
-python main.py --test all   # EVERYTHING: unit tests + scenarios T1-T8 (single entry point)
-python main.py --test unit  # unit tests only
-python main.py --test 7     # one scenario (1-8)
+python3 main.py --test all
 ```
 
-`--test all` is the single reproducible entry point required by the spec
-(section 9). It prints a per-test PASS/FAIL line and exits non-zero on any
-failure, so it can be used in CI.
+Chạy tất cả unit test và 8 kịch bản T1–T8, in kết quả PASS/FAIL từng mục và
+tổng kết ở cuối. Thoát với mã khác 0 nếu có bất kỳ test nào thất bại.
 
-In test T2
-- Duplicated votes made by the same node (validator) is rejected.
-- Reordered messages are done by time delay, beginning messages arrive later than those sent at the end. This reverse the order of propose to prevote to precommit, taking the consensus more rounds to converge to new height.
+Kết quả mong đợi: `SUMMARY: 33/33 passed`
 
-In test T3
-- We tamper key pairs of a transaction, and key pairs of some nodes (validators).
-- Tampering transaction result in invalid transaction (logging `VAL06_BLOCK`) when a proposed block is validated.
-- Tampering nodes (validators) result in invalid block header (logging `VAL03_BLOCK`), and invalid vote (`ON_VOTE_PREVOTE`, `ON_VOTE_PRECOMMIT`).
-
-In test T4
-- Transactions made by an account is ordered by `nounce` value, later transactions use higher nonce. This helps applying transactions in sequencially. Before applying, transactions are verified using the signature, and checked for replayed using the `nonnce` value.
-- When a transaction is replayed/duplicated, they hold the same `nonce` and only first one is applied.
-
-In test T5
-- Drop messages may lead to some nodes failed to move to next step. If correct nodes smaller than quorum, they move to next round and restart proposing and voting. If correct nodes satistfy quorum, all correct nodes will eventually converge to some chain.
-- The test start with unreliable network (drop, delay), then stablize the network until correct nodes converge.
-
-## Logging
-
-Log network interaction between nodes with:
-- Three types of messages (`PROPOSAL`, `PREVOTE`, `PRECOMMIT`) and two directions (`SENT`, `RECV`).
-- Sending messages (`SENT`) in an unreliable network (configured `stabilized=False`) can result in being delayed (`SUCCEEDED` with delay time), duplicated (`DUPLICATED`), dropped (`DROPPED`), reordered (via the configured `reorder_list` delays), or suppressed by rate limiting (`BLOCKED` / `UNBLOCKED`).
-
-Log events of consensus algorithms:
-
-|Event|Description|Source|
-|-|-|-|
-|`ROUND_TIMEOUT`|After round timeout|`def _round_timeout()`|
-|`VAL<index>_BLOCK`|While valiadating a block|`def validate_block()`|
-|`ON_VOTE_<vote_step>`|After receiving a vote|`def on_vote()`|
-|`PREVOTE_QUORUM`|Before sending precommit vote|`def _on_prevote_quorum()`|
-|`PRECOMMIT_QUORUM`|Before deciding and applying a block's transactions|`def _on_precommit_quorum()`|
-
-## Unit tests
-
-Run via `python main.py --test unit`, or individually:
+### Chạy một kịch bản
 
 ```bash
-python3 tests/test_crypto.py      # signatures, domain separation
-python3 tests/test_execution.py   # determinism, replay, ownership
-python3 tests/test_network.py     # outbound rate limit, peer blocking
-python3 tests/test_gossip.py      # header-before-body gossip
-python3 tests/test_consensus.py   # vote counting, block validation
+python3 main.py --test 1      # thay 1 bằng số từ 1 đến 8
 ```
 
-## Cấu trúc project
+### Chỉ chạy unit test
+
+```bash
+python3 main.py --test unit
+```
+
+## Các kịch bản kiểm thử
+
+| ID | Kịch bản | Kết quả yêu cầu |
+|----|----------|-----------------|
+| T1 | Chạy bình thường, không lỗi | Mọi node đúng finalize cùng chuỗi và cùng state hash |
+| T2 | Message trùng lặp / đảo thứ tự | Không đếm trùng phiếu, không finalize mâu thuẫn |
+| T3 | Chữ ký sai / sai domain | Message bị từ chối, ghi log lý do |
+| T4 | Giao dịch bị replay / trùng lặp | Chỉ áp dụng đúng một lần |
+| T5 | Drop/delay trước khi mạng ổn định | Safety được giữ, không finalize hai lần cùng height |
+| T6 | Proposer im lặng / crash | Round timeout kích hoạt, chuỗi tiếp tục |
+| T7 | Tối đa f validator Byzantine equivocate | Không finalize mâu thuẫn |
+| T8 | Chạy lại cùng seed hai lần | Log giống nhau từng byte và cùng state hash cuối |
+
+## Unit test
+
+Chạy riêng từng nhóm nếu cần:
+
+```bash
+python3 tests/test_crypto.py       # xác thực chữ ký, domain separation
+python3 tests/test_execution.py    # cập nhật trạng thái, chống replay, quyền sở hữu
+python3 tests/test_consensus.py    # đếm phiếu, kiểm tra tính hợp lệ của block
+python3 tests/test_network.py      # giới hạn tốc độ gửi, chặn peer quá tải
+python3 tests/test_gossip.py       # phát header trước body
+```
+
+## Kiểm tra tính deterministic
+
+```bash
+bash scripts/check_determinism.sh 1     # thay 1 bằng số kịch bản 1-8
+```
+
+Script chạy cùng một kịch bản trong hai tiến trình riêng biệt rồi so sánh file
+log trên đĩa và kết quả in ra. Script tự chọn interpreter nào import được
+`pynacl`; có thể chỉ định thủ công:
+
+```bash
+PYTHON=/duong/dan/toi/python bash scripts/check_determinism.sh 1
+```
+
+## Cấu hình
+
+Tham số các kịch bản nằm trong `config/scenarios.json`. Khối `default` áp dụng
+cho mọi kịch bản, khối riêng của từng kịch bản ghi đè lên.
+
+| Tham số | Ý nghĩa |
+|---------|---------|
+| `num_nodes` | Số validator (`n = 3f + 1`), mặc định 8 |
+| `bounded_delay` | Độ trễ giao message sau khi mạng ổn định |
+| `min_delay` / `max_delay` | Khoảng độ trễ trước khi mạng ổn định |
+| `drop_rate` | Xác suất mất message trước khi ổn định |
+| `duplicate_rate` | Xác suất message bị nhân đôi |
+| `rate_limit` | Số message tối đa mỗi node gửi trong `rate_window` (0 = tắt) |
+| `duration` | Thời gian chạy (giây ảo) |
+| `num_byzantine` | Số validator Byzantine (chỉ dùng cho T7) |
+
+Sửa file này để đổi cấu hình mà không cần sửa mã nguồn. Nếu file thiếu hoặc sai
+định dạng, chương trình dùng giá trị mặc định có sẵn thay vì dừng lại.
+
+## Định dạng log
+
+Log ghi ra `logs/tN.jsonl`, mỗi dòng là một sự kiện JSON. Mọi bản ghi đều có:
+
+| Trường | Ý nghĩa |
+|--------|---------|
+| `ts` | Thời điểm (giây ảo từ bộ lập lịch) |
+| `h` | Height |
+| `r` | Round |
+| `node` | ID node sinh ra sự kiện |
+| `type` | Loại sự kiện |
+
+Sự kiện mạng có thêm `body` chứa loại message (`PROPOSAL`, `PREVOTE`,
+`PRECOMMIT`, `BODY_REQUEST`, `BODY_RESPONSE`), chiều (`SENT`/`RECV`) và trạng
+thái gửi (`SUCCEEDED`, `DUPLICATED`, `DROPPED`, `BLOCKED`, `UNBLOCKED`).
+
+Sự kiện đồng thuận có thêm `event` và `msg`:
+
+| Sự kiện | Thời điểm ghi |
+|---------|---------------|
+| `ROUND_TIMEOUT` | Hết thời gian chờ của một round |
+| `VAL<n>_BLOCK` | Block không hợp lệ khi kiểm tra |
+| `ON_VOTE_<phase>` | Sau khi nhận một phiếu |
+| `PREVOTE_QUORUM` | Trước khi gửi phiếu Precommit |
+| `PRECOMMIT_QUORUM` | Trước khi finalize block |
+| `HEADER_REJECTED` | Từ chối header nhận được |
+| `HEADER_ACCEPTED_BODY_REQUESTED` | Chấp nhận header, yêu cầu body |
+| `BODY_SENT` / `BODY_RECEIVED` | Gửi / nhận body giao dịch |
+| `BYZANTINE_EQUIVOCATE_*` | Node Byzantine gửi thông tin mâu thuẫn |
+
+## Cấu trúc thư mục
 
 ```
 src/
 ├── crypto/
-│   ├── encoding.py   # canonical JSON + SHA-256 hashing (deterministic encoding)
-│   └── signing.py    # Ed25519 keygen/sign/verify + domain separation (TX/HEADER/VOTE)
+│   ├── encoding.py     # mã hóa canonical + băm SHA-256
+│   └── signing.py      # Ed25519, domain separation TX/HEADER/VOTE
 ├── types/
-│   └── messages.py   # Transaction, BlockHeader, Block, Vote dataclasses
+│   └── messages.py     # Transaction, BlockHeader, Block, Vote
 ├── execution/
-│   └── state.py       # deterministic state transition function, replay protection
+│   └── state.py        # hàm chuyển trạng thái deterministic
 ├── network/
-│   └── simulator.py   # VirtualClock scheduler, delay/drop/duplicate/rate-limit + logging
+│   └── simulator.py    # bộ lập lịch sự kiện, mô phỏng mạng, ghi log
 ├── consensus/
-│   └── engine.py       # Tendermint-style propose/prevote/precommit + locking rules
-├── byzantine.py         # equivocating validator used by T7
-└── node.py              # wires crypto+network+consensus+execution into one node
-main.py                    # single entry point: scenarios T1-T8 + unit test runner
-tests/                      # unit tests
-logs/                        # network + consensus event logs (JSON lines)
-config/                      # (for nhóm mở rộng: file-driven topology/scenario config)
+│   └── engine.py       # Propose/Prevote/Precommit, quy tắc khóa
+├── byzantine.py        # validator Byzantine dùng cho T7
+└── node.py             # ghép các tầng thành một node hoàn chỉnh
+
+tests/                  # unit test
+config/scenarios.json   # cấu hình các kịch bản
+logs/                   # log sự kiện (JSON Lines)
+scripts/                # script kiểm tra determinism
+main.py                 # điểm vào chương trình
 ```
 
-## Việc còn cần làm (gợi ý phân công theo 4 người, xem chat)
+## Tài liệu tham khảo
 
-- [ ] `network/simulator.py`: thêm rate-limit outbound + block/unblock peer quá tải
-- [ ] `network/simulator.py`: tách header-broadcast-trước-body cho đúng thật (hiện tại giả định mempool đã có sẵn tx)
-- [ ] `consensus/engine.py`: xử lý round-change message rõ ràng hơn (hiện dùng timeout đơn giản)
-- [ ] `consensus/engine.py`: xử lý validator Byzantine gửi block/vote không hợp lệ có chủ đích (test T7)
-- [ ] Viết test end-to-end đầy đủ cho T2, T3, T5, T6, T7, T8 (xem bảng trong đề bài)
-- [ ] Script chạy 2 lần cùng seed và so sánh log + state hash byte-identical (T8) — `Network` đã có `set_seed()` sẵn để hỗ trợ việc này
-- [ ] Merkle tree cho state nếu muốn thay vì hash toàn bộ dict (hiện tại `state_root()` hash cả map — hợp lệ theo đề nhưng không hỗ trợ Merkle proof)
-
-## Ghi chú thiết kế
-
-- **Deterministic encoding**: mọi object được ký/hash đều qua `canonical_bytes()` (JSON keys sorted, không whitespace) — đảm bảo mọi node tạo ra cùng byte cho cùng nội dung logic.
-- **Domain separation**: `TX:<chain_id>`, `HEADER:<chain_id>`, `VOTE:<chain_id>` — chữ ký của loại message này không thể replay sang loại khác.
-- **Quorum**: với n = 3f+1 validator, quorum = 2f+1 (>2n/3), đúng theo giả định BFT trong đề.
-- **Locking**: `ConsensusState.locked_block` / `locked_round` implement đúng rule 4-5 trong mục 6.1 của đề bài.
-
-## Test status
-
-| Test | Scenario | Status |
-|-|-|-|
-|T1|Normal run, no faults|PASS|
-|T2|Duplicate / reordered messages|PASS|
-|T3|Invalid signature / wrong domain|PASS|
-|T4|Replayed / duplicate transaction|PASS|
-|T5|Drop / delay before synchrony|PASS|
-|T6|Proposer silent / crashed|PASS|
-|T7|Up to f Byzantine validators equivocate|PASS|
-|T8|Same seed rerun twice|PASS|
-
-Unit tests cover the four categories the spec (s.9) names, plus the network
-and gossip layers: crypto (4), state update (3), vote counting (6), block
-validation (6), network (3), gossip (3).
-`python main.py --test all` reports 33/33.
-
-### Determinism script (spec s.8)
-
-```bash
-bash scripts/check_determinism.sh 1   # any scenario 1-8
-```
-
-The script picks whichever of `python3` / `python` can import pynacl -- on
-macOS those frequently point at different installs. Override with
-`PYTHON=/path/to/python bash scripts/check_determinism.sh 1`.
-
-Runs the scenario in two SEPARATE processes and diffs the log files on disk,
-so nothing held in memory can mask a nondeterminism and each run gets a fresh
-PYTHONHASHSEED. All eight scenarios pass.
-
-## Determinism (spec section 8)
-
-Byte-identical reruns required removing four sources of nondeterminism:
-
-1. random key generation -> `keypair_from_seed()`
-2. `time.time()` in the block header -> logical clock over `(height, round)`
-3. wall-clock run length -> `run_until_height()` stops on a logical condition
-4. `asyncio.sleep()` delivery -> `VirtualClock`, a discrete-event scheduler
-
-Item 4 was the subtle one: with 1-3 fixed, reruns still diverged roughly one
-time in five, because equal-delay messages were woken by the event loop in an
-order that depended on real elapsed microseconds. The final state hash was
-always correct -- only log line ORDER drifted. The virtual clock removes real
-time from the simulation entirely, making determinism structural.
-
-Verified identical on macOS and Linux: 48104-byte log, matching state root.
-
-## Configuration
-
-Scenario parameters live in `config/scenarios.json` (spec s.6 allows delay
-patterns to be file-driven, and requires the node count to be configurable at
-8 or more). `default` applies everywhere; each scenario block overrides it.
-Node count defaults to 8; T7 runs 2 Byzantine validators (f = 2 at n = 8).
-If the file is missing or malformed the run falls back to built-in defaults
-rather than failing, so the config is a tuning surface, not a hard dependency.
-
-## Logging fields
-
-Every entry carries the four fields the spec (s.6) requires -- `ts`
-(timestamp), `node`, `type`, `h` (height) -- plus `r` (round). `ts` is
-VIRTUAL time from the scheduler, not wall time: a wall clock would break the
-byte-identical rerun requirement of s.8 while adding nothing, since virtual
-time already orders events correctly.
-
-## Header-before-body gossip (spec section 6)
-
-"Headers are broadcast before bodies; a body may be sent only after the
-receiver accepts the matching header."
-
-PROPOSAL carries the header plus a list of tx hashes -- never the transactions
-themselves. On receipt a validator runs `_accept_header()`, which checks only
-what can be checked without the body: height, parent hash, proposer for this
-(height, round), and the header signature. `state_root` and `tx_root` are
-deliberately excluded, since verifying them would require the body and defeat
-the ordering the rule exists to create.
-
-- header rejected -> logged `HEADER_REJECTED`, nothing further is sent
-- header accepted, body missing -> parked in `pending_headers[round]`,
-  `BODY_REQUEST` sent to the proposer (`HEADER_ACCEPTED_BODY_REQUESTED`)
-- proposer replies `BODY_RESPONSE` with only the requested tx (`BODY_SENT`)
-- receiver verifies each body's signature and hash before admitting it
-  (`BODY_RECEIVED`), then reassembles the block and resumes consensus
-
-The request is the receiver's proof of acceptance, so a bogus header can never
-cause anyone to pull a body: the cheap check gates the expensive transfer.
-
-Note that the T1-T8 scenarios seed the same transaction into every mempool, so
-this path does not fire there. `tests/test_gossip.py` gives the transaction to
-the proposer alone, which is the only way to exercise it.
-
-## Remaining work
-
-- [ ] REPORT.pdf
+- Buchman, Kwon, Milosevic. *The latest gossip on BFT consensus* (Tendermint):
+  https://arxiv.org/abs/1807.04938
+- PyNaCl: https://pynacl.readthedocs.io/
