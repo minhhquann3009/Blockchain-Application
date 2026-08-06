@@ -72,6 +72,7 @@ python3 tests/test_crypto.py      # signatures, domain separation
 python3 tests/test_execution.py   # determinism, replay, ownership
 python3 tests/test_network.py     # outbound rate limit, peer blocking
 python3 tests/test_gossip.py      # header-before-body gossip
+python3 tests/test_consensus.py   # vote counting, block validation
 ```
 
 ## Cấu trúc project
@@ -127,8 +128,20 @@ config/                      # (for nhóm mở rộng: file-driven topology/scen
 |T7|Up to f Byzantine validators equivocate|PASS|
 |T8|Same seed rerun twice|PASS|
 
-Unit tests: crypto (4), execution (3), network (3), gossip (3).
-`python main.py --test all` reports 21/21.
+Unit tests cover the four categories the spec (s.9) names, plus the network
+and gossip layers: crypto (4), state update (3), vote counting (6), block
+validation (6), network (3), gossip (3).
+`python main.py --test all` reports 33/33.
+
+### Determinism script (spec s.8)
+
+```bash
+./scripts/check_determinism.sh 1   # any scenario 1-8
+```
+
+Runs the scenario in two SEPARATE processes and diffs the log files on disk,
+so nothing held in memory can mask a nondeterminism and each run gets a fresh
+PYTHONHASHSEED. All eight scenarios pass.
 
 ## Determinism (spec section 8)
 
@@ -146,6 +159,23 @@ always correct -- only log line ORDER drifted. The virtual clock removes real
 time from the simulation entirely, making determinism structural.
 
 Verified identical on macOS and Linux: 48104-byte log, matching state root.
+
+## Configuration
+
+Scenario parameters live in `config/scenarios.json` (spec s.6 allows delay
+patterns to be file-driven, and requires the node count to be configurable at
+8 or more). `default` applies everywhere; each scenario block overrides it.
+Node count defaults to 8; T7 runs 2 Byzantine validators (f = 2 at n = 8).
+If the file is missing or malformed the run falls back to built-in defaults
+rather than failing, so the config is a tuning surface, not a hard dependency.
+
+## Logging fields
+
+Every entry carries the four fields the spec (s.6) requires -- `ts`
+(timestamp), `node`, `type`, `h` (height) -- plus `r` (round). `ts` is
+VIRTUAL time from the scheduler, not wall time: a wall clock would break the
+byte-identical rerun requirement of s.8 while adding nothing, since virtual
+time already orders events correctly.
 
 ## Header-before-body gossip (spec section 6)
 
