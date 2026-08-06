@@ -149,8 +149,15 @@ class Network:
             entry_body = entry_body | message_state
 
         entry = {
+            # Spec s.6 requires every network event to carry timestamp, node
+            # ID, type and height. `ts` is VIRTUAL time from the clock, not
+            # wall time -- a wall clock would break the byte-identical rerun
+            # requirement of s.8, while virtual time is fully reproducible
+            # and still orders events correctly.
+            'ts': round(self.clock.now, 6),
             'h': message.height,
             'r': message.round,
+            'node': short_addr(message.log_body.from_node),
             'type': message.log_type,
             'body': entry_body,
         }
